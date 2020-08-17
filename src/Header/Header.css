@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  max-height: 70px;
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nav-logo {
+  height: 100px;
+  width: 84px;
+}
+
+nav { 
+  margin: auto;
+}
+
+ul {
+  list-style: none;
+  color: white;
+  display: flex;
+}
+
+li {
+  margin-right: 5px;
+}
+
+.lets-talk {
+  border: 1px solid black;
+  padding: 0px 5px 0px 5px;
+  background-color: white;
+  color: black;
+}
+
+.social-media {
+  display: flex;
+  margin-right: 5px;
+}
+
+.icon {
+  border: 1px solid black;
+  background-color: white;
+  margin-right: 5px;
+}
