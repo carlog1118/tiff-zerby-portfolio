@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  text-align: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+}
+
+p {
+  width: 90%;
+  max-width: 550px;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+}
+
+a {
+  border: 1px solid black;
+  background-color: darkgray;
+  color: white;
+  padding: 5px;
+}
