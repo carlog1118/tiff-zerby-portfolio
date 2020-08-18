@@ -12,16 +12,12 @@ header {
   background-color: gray;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .nav-logo {
   height: 100px;
   width: 84px;
-}
-
-nav { 
-  margin: auto;
 }
 
 ul {
@@ -39,5 +35,10 @@ li {
   padding: 0px 5px 0px 5px;
   background-color: white;
   color: black;
+}
+
+.placeholder {
+  height: 100px;
+  width: 84px;
 }
 

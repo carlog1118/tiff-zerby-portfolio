@@ -15,6 +15,7 @@ class Header extends React.Component {
             <li className="lets-talk">Lets Talk</li>  
           </ul>
         </nav>
+        <div className="placeholder"></div>
       </header>
     );
   };
