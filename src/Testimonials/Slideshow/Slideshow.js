@@ -8,8 +8,8 @@ class Slideshow extends React.Component {
         <h2>Testimonials</h2>
         <div className="slideshow-container"> 
           <div className="mySlides">
-            <q>I love you the more in that I believe you had liked me for my own sake and for nothing else</q>
-            <p className="author">- John Keats</p>
+            <q>Bawitdaba</q>
+            <p className="author">- Kid Rock</p>
           </div>
           <a className="prev" onClick="plusSlides(-1)">&#10094;</a>
           <a className="next" onClick="plusSlides(1)">&#10095;</a>

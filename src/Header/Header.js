@@ -15,13 +15,8 @@ class Header extends React.Component {
             <li className="lets-talk">Lets Talk</li>  
           </ul>
         </nav>
-        <div className="social-media">
-          <div className="icon">LI</div>
-          <div className="icon">Email</div>
-          <div className="icon">Insta</div>
-        </div>
       </header>
-    )
+    );
   };
 };
 

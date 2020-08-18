@@ -10,12 +10,18 @@
 
 .about-cont {
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
   width: 90%;
+  text-align: center;
 }
 
 .head {
   border: 1px solid black;
   padding: 90px 70px 90px 70px;
   margin: 10px;
+}
+
+a {
+  margin-bottom: 10px;
 }

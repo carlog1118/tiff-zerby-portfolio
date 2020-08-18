@@ -41,13 +41,3 @@ li {
   color: black;
 }
 
-.social-media {
-  display: flex;
-  margin-right: 5px;
-}
-
-.icon {
-  border: 1px solid black;
-  background-color: white;
-  margin-right: 5px;
-}
