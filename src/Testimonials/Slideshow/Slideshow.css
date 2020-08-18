@@ -43,7 +43,8 @@
 .dot-container {
   text-align: center;
   padding: 20px;
-  background: #ddd;
+  background: white;
+  border-bottom: 1px solid black;
 }
   
 /* The dots/bullets/indicators */
