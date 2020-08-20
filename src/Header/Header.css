@@ -24,6 +24,7 @@ ul {
   list-style: none;
   color: white;
   display: flex;
+  align-items: center;
 }
 
 li {

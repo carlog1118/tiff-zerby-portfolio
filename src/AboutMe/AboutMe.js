@@ -32,15 +32,12 @@ class AboutMe extends React.Component {
     const renderImage = () => {
       if(this.state.isLoaded){
         const aboutImg = this.state.aboutResults._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url
-        console.log(aboutImg)
         return (
-          <img src={aboutImg} alt="Tiffany Zerby's headshot"></img>
+          <img className="head"src={aboutImg} alt="Tiffany Zerby's headshot"></img>
         )
       }
     }
-
     
-
     return (
       <section className="about-me">
           <h2>About me</h2>
