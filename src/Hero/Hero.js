@@ -2,11 +2,39 @@ import React from 'react';
 import './Hero.css';
 
 class Hero extends React.Component {
+
+  state = {
+    heroResults: '',
+    isLoaded: false
+  }
+  
+  componentDidMount(){
+    fetch('http://localhost/tiff-test/wp-json/wp/v2/hero')
+      .then(res => res.json())
+      .then(res => this.setState({
+        heroResults: res[0],
+        isLoaded: true
+      }))
+      .catch(err => alert(err))
+  }  
+
   render(){
+    
+    const renderHero= () => {
+      if (this.state.isLoaded) {
+        const heroText= this.state.heroResults.acf.hero_text
+        return(
+         <p>{heroText}</p>
+        )
+      } else {
+        return <p>Loading...</p>
+      }
+    }
+
     return (
       <section className="hero">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum  
+          {renderHero()}
         </p>
         <div className="buttons">
           <a>Strategy</a>

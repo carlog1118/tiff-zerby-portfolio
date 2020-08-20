@@ -6,7 +6,7 @@ class Footer extends React.Component {
     return (
       <footer>
         <form>
-            <label for="email"></label>
+            <label htmlFor="email"></label>
             <input type="text" id="email" placeholder="E-mail"></input>
             <input type="submit" value="Subscribe"></input>
         </form>
