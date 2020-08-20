@@ -32,10 +32,8 @@ class Hero extends React.Component {
     }
 
     return (
-      <section className="hero">
-        <p>
+      <section className="hero">       
           {renderHero()}
-        </p>
         <div className="buttons">
           <a>Strategy</a>
           <a>Content</a>
