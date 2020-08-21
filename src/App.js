@@ -4,6 +4,7 @@ import Hero from './Hero/Hero';
 import Testimonials from './Testimonials/Testimonials';
 import AboutMe from './AboutMe/AboutMe';
 import Footer from './Footer/Footer';
+import Projects from './Projects/Projects';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Hero/>
         <Testimonials/>
         <AboutMe/>
+        <Projects/>
       </main>
       <Footer/>
     </div>
