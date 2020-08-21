@@ -43,3 +43,13 @@ li {
   width: 84px;
 }
 
+.text-link {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.img-link {
+  background-color: transparent;
+  border: none;
+}
+

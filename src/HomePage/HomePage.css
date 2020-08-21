@@ -1,0 +1,12 @@
+main{
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  flex: 1;
+}
+
+.testimonials {
+  flex: 1;
+}

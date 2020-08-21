@@ -1,11 +1,14 @@
 import React from 'react';
-import './Project.css';
+import ProjectPage from '../ProjectPage/ProjectPage';
+import './ProjectCard.css';
 
-class Project extends React.Component{
+
+class ProjectCard extends React.Component{
 
   render(){
     const renderCard = () => {
-        if(this.props.isLoaded){
+        const isLoaded= this.props.isLoaded
+        if(isLoaded){
           const name= this.props.project.acf.project_name
           const client= this.props.project.acf.client
           const description= this.props.project.acf.description
@@ -14,9 +17,13 @@ class Project extends React.Component{
           return(
               <>
                 <h3>{name}</h3>
-                <h4>{client}</h4>
                 <img className="proj-img"src={image} alt="project one"></img>
-                <p>{description}</p>
+                <ProjectPage
+                  name={name}
+                  client={client}
+                  description={description}
+                  image={image}
+                />
               </>
           )
         
@@ -30,4 +37,4 @@ class Project extends React.Component{
   }
 }
 
-export default Project;
+export default ProjectCard;

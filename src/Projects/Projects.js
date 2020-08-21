@@ -1,5 +1,7 @@
 import React from 'react';
-import Project from './Project/Project';
+import Header from '../Header/Header';
+import Project from './ProjectCard/ProjectCard';
+import Footer from '../Footer/Footer';
 import './Projects.css';
 
 
@@ -24,16 +26,18 @@ class Projects extends React.Component {
     const renderProject = () => {
       if(this.state.isLoaded){
         return (
-          <div className="proj-card-container">
+          <>
             <h2>Projects</h2>
-            {this.state.projects.map(project => (
-              <Project 
-                isLoaded={this.state.isLoaded} 
-                project={project}
-                key={project.id}
-              />
-            ))}
-          </div>            
+            <div className="proj-card-container">            
+              {this.state.projects.map(project => (
+                <Project 
+                  isLoaded={this.state.isLoaded} 
+                  project={project}
+                  key={project.id}
+                />
+              ))}
+            </div>
+          </>            
         )
       } else {
         return <p>Loading...</p>
@@ -41,9 +45,13 @@ class Projects extends React.Component {
     }
 
     return (
-      <section className="projects">        
-        {renderProject()}
-      </section>
+      <div className= "projects-page">
+        <Header/>
+        <section className="projects">        
+          {renderProject()}
+        </section>
+        <Footer/>
+      </div>
     )
   };
 };

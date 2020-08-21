@@ -1,8 +1,17 @@
+.projects-page{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .projects{
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid red;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
 }
 
 .proj-card-container {

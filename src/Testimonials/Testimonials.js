@@ -1,7 +1,6 @@
 import React from 'react';
-//import Slideshow from './Slideshow/Slideshow'
-import './Testimonials.css';
 import Testimonial from './Testimonial/Testimonial';
+import './Testimonials.css';
 
 class Testimonials extends React.Component {
   state = {
@@ -40,7 +39,7 @@ class Testimonials extends React.Component {
     }
 
     return (
-      <section className="testimonials">        
+      <section className="testimonials">      
         {renderTestimonial()}
       </section>
     )

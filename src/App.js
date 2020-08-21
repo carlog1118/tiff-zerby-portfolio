@@ -1,22 +1,16 @@
 import React from 'react';
-import Header from './Header/Header';
-import Hero from './Hero/Hero';
-import Testimonials from './Testimonials/Testimonials';
+import { Route } from 'react-router-dom';
+import HomePage from './HomePage/HomePage.js';
 import AboutMe from './AboutMe/AboutMe';
-import Footer from './Footer/Footer';
 import Projects from './Projects/Projects';
+import './App.css'
 
 function App() {
   return (
-    <div className='App'>
-      <Header/>
-      <main>
-        <Hero/>
-        <Testimonials/>
-        <AboutMe/>
-        <Projects/>
-      </main>
-      <Footer/>
+    <div className="App">
+        <Route exact path="/" component={HomePage}/> 
+        <Route path="/about" component={AboutMe}/>
+        <Route path="/portfolio" component={Projects}/>
     </div>
   );
 };

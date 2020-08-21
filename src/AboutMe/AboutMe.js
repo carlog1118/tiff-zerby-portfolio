@@ -1,4 +1,6 @@
 import React from 'react';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import './AboutMe.css';
 
 class AboutMe extends React.Component {
@@ -39,14 +41,18 @@ class AboutMe extends React.Component {
     }
     
     return (
+      <div className="about-page">
+      <Header/>
       <section className="about-me">
           <h2>About me</h2>
           <div className="about-cont">
               {renderImage()}
               {renderAbout()}
           </div>
-          <a>Let's Talk</a>
+          <button type="button">Let's Talk</button>
       </section>
+      <Footer/>
+      </div>
     )
   };
 };
