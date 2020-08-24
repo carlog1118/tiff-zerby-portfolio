@@ -41,9 +41,9 @@ class AboutPage extends React.Component {
     }
     
     return (
-      <div className="about-page">
+      <div className="about-page-container">
       <Header/>
-      <section className="about-me">
+      <section className="about-section">
           <h2>About me</h2>
           <div className="about-cont">
               {renderImage()}
