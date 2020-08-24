@@ -1,9 +1,9 @@
 import React from 'react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import './AboutMe.css';
+import './AboutPage.css';
 
-class AboutMe extends React.Component {
+class AboutPage extends React.Component {
   state = {
     aboutResults: '',
     isLoaded: false
@@ -57,4 +57,4 @@ class AboutMe extends React.Component {
   };
 };
   
-export default AboutMe;
+export default AboutPage;

@@ -2,10 +2,10 @@ import React from 'react';
 import Header from '../Header/Header';
 import Project from './ProjectCard/ProjectCard';
 import Footer from '../Footer/Footer';
-import './Projects.css';
+import './PortfolioPage.css';
 
 
-class Projects extends React.Component {
+class PortfolioPage extends React.Component {
   state = {
     projects: '',
     isLoaded: false
@@ -56,4 +56,4 @@ class Projects extends React.Component {
   };
 };
   
-export default Projects;
+export default PortfolioPage;
