@@ -1,14 +1,14 @@
-import React from 'react';
-import './Footer.css';
+import React from "react";
+import "./Footer.css";
 
 class Footer extends React.Component {
-  render(){
+  render() {
     return (
       <footer>
         <form>
-            <label htmlFor="email"></label>
-            <input type="text" id="email" placeholder="E-mail"></input>
-            <input type="submit" value="Subscribe"></input>
+          <label htmlFor="email"></label>
+          <input type="text" id="email" placeholder="E-mail"></input>
+          <input type="submit" value="Subscribe"></input>
         </form>
         <div className="social-media">
           <div className="icon">LI</div>
@@ -17,7 +17,7 @@ class Footer extends React.Component {
         </div>
       </footer>
     );
-  };
-};
-  
+  }
+}
+
 export default Footer;
