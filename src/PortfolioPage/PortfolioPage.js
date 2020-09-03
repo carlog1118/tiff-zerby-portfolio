@@ -5,10 +5,13 @@ import Footer from "../Footer/Footer";
 import "./PortfolioPage.css";
 
 class PortfolioPage extends React.Component {
-  state = {
-    projects: "",
-    isLoaded: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      projects: "",
+      isLoaded: false,
+    };
+  }
 
   componentDidMount() {
     fetch("http://localhost/tiff-test/wp-json/wp/v2/projects?_embed")

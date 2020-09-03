@@ -4,10 +4,13 @@ import Footer from "../Footer/Footer";
 import "./AboutPage.css";
 
 class AboutPage extends React.Component {
-  state = {
-    aboutResults: "",
-    isLoaded: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      aboutResults: "",
+      isLoaded: false,
+    };
+  }
 
   componentDidMount() {
     fetch("http://localhost/tiff-test/wp-json/wp/v2/about?_embed")

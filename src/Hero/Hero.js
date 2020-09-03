@@ -2,10 +2,13 @@ import React from "react";
 import "./Hero.css";
 
 class Hero extends React.Component {
-  state = {
-    heroResults: "",
-    isLoaded: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      heroResults: "",
+      isLoaded: false,
+    };
+  }
 
   componentDidMount() {
     fetch("http://localhost/tiff-test/wp-json/wp/v2/hero")
