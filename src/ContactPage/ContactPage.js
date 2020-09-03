@@ -14,7 +14,7 @@ class ContactPage extends React.Component {
             className="email-form"
             action="mailto:someone@example.com"
             method="post"
-            enctype="text/plain"
+            encType="text/plain"
           >
             Name:
             <br />
