@@ -13,7 +13,7 @@ class AboutPage extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost/tiff-test/wp-json/wp/v2/about?_embed")
+    fetch("http://localhost:8000/about")
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -27,14 +27,14 @@ class AboutPage extends React.Component {
   render() {
     const renderAbout = () => {
       if (this.state.isLoaded) {
-        const aboutText = this.state.aboutResults.content.rendered;
-        return <p dangerouslySetInnerHTML={{ __html: aboutText }}></p>;
+        const aboutText = this.state.aboutResults.about_text;
+        return <p>{aboutText}</p>;
       } else {
         return <p>loading...</p>;
       }
     };
 
-    const renderImage = () => {
+    /*const renderImage = () => {
       if (this.state.isLoaded) {
         const aboutImg = this.state.aboutResults._embedded[
           "wp:featuredmedia"
@@ -47,7 +47,7 @@ class AboutPage extends React.Component {
           ></img>
         );
       }
-    };
+    };*/
 
     return (
       <div className="about-page-container">
@@ -55,7 +55,7 @@ class AboutPage extends React.Component {
         <section className="about-section">
           <h2>About me</h2>
           <div className="about-cont">
-            {renderImage()}
+            {/*{renderImage()}*/}
             {renderAbout()}
           </div>
           <button type="button">Let's Talk</button>

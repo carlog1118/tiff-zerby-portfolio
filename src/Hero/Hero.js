@@ -11,7 +11,7 @@ class Hero extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost/tiff-test/wp-json/wp/v2/hero")
+    fetch("http://localhost:8000/hero")
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -25,7 +25,7 @@ class Hero extends React.Component {
   render() {
     const renderHero = () => {
       if (this.state.isLoaded) {
-        const heroText = this.state.heroResults.acf.hero_text;
+        const heroText = this.state.heroResults.herotext;
         return <p>{heroText}</p>;
       } else {
         return <p>Loading...</p>;

@@ -16,7 +16,7 @@ function App() {
         <Route path="/about" component={AboutPage}/>
         <Route path="/portfolio" component={PortfolioPage}/>
         <Route path="/services" component={ServicesPage}/>
-        <Route path="/project" component={ProjectPage}/>
+        <Route path="/project/:projectId" component={ProjectPage}/>
         <Route path="/blog" component={BlogPage}/>
         <Route path="/contact" component={ContactPage}/>
     </div>

@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+.service-card {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
+

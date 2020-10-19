@@ -5,12 +5,12 @@ class Testimonial extends React.Component {
   render() {
     const renderCard = () => {
       if (this.props.isLoaded) {
-        const author = this.props.testimonial.acf.author;
-        const quote = this.props.testimonial.acf.quote;
-        const company = this.props.testimonial.acf.company;
+        const author = this.props.testimonial.author;
+        const quote = this.props.testimonial.quote;
+        const client = this.props.testimonial.client;
         return (
           <div>
-            <h3 className="company">{company}</h3>
+            <h3 className="client">{client}</h3>
             <q>{quote}</q>
             <p>-{author}</p>
           </div>

@@ -7,19 +7,19 @@ class ProjectCard extends React.Component {
     const renderCard = () => {
       const isLoaded = this.props.isLoaded;
       if (isLoaded) {
-        const name = this.props.project.acf.project_name;
-        const client = this.props.project.acf.client;
-        const description = this.props.project.acf.description;
-        const image = this.props.project._embedded["wp:featuredmedia"][0]
-          .media_details.sizes.medium.source_url;
+        const name = this.props.project.name;
+        const client = this.props.project.client;
+        const description = this.props.project.description;
+        {/*const image = this.props.project._embedded["wp:featuredmedia"][0]
+      .media_details.sizes.medium.source_url;*/}
         const id = this.props.project.id;
 
         return (
           <>
-            <Link to="/project">
+            <Link to={`/project/${id}`}>
               <h3>{name}</h3>
             </Link>
-            <img className="proj-img" src={image} alt="project one"></img>
+            {/*<img className="proj-img" src={image} alt="project screen shot"></img>*/}
           </>
         );
       } else {

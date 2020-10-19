@@ -14,7 +14,7 @@ class PortfolioPage extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost/tiff-test/wp-json/wp/v2/projects?_embed")
+    fetch("http://localhost:8000/projects")
       .then((res) => res.json())
       .then((res) =>
         this.setState({

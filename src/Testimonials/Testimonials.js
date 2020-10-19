@@ -12,7 +12,7 @@ class Testimonials extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost/tiff-test/wp-json/wp/v2/testimonials")
+    fetch("http://localhost:8000/testimonials")
       .then((res) => res.json())
       .then((res) =>
         this.setState({
