@@ -10,13 +10,24 @@ class ProjectCard extends React.Component {
         const name = this.props.project.name;
         const client = this.props.project.client;
         const description = this.props.project.description;
-        {/*const image = this.props.project._embedded["wp:featuredmedia"][0]
-      .media_details.sizes.medium.source_url;*/}
+        {
+          /*const image = this.props.project._embedded["wp:featuredmedia"][0]
+      .media_details.sizes.medium.source_url;*/
+        }
         const id = this.props.project.id;
 
         return (
           <>
-            <Link to={`/project/${id}`}>
+            <Link
+              to={{
+                pathname: `/project/${id}`,
+                projectProps: {
+                  name: `${name}`,
+                  client: `${client}`,
+                  description: `${description}`,
+                },
+              }}
+            >
               <h3>{name}</h3>
             </Link>
             {/*<img className="proj-img" src={image} alt="project screen shot"></img>*/}

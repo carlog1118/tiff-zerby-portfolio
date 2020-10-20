@@ -8,12 +8,12 @@ import "./HomePage.css";
 class HomePage extends React.Component {
   render() {
     return (
-      <div className="home-page">
+      <div className="home-page-cont">
         <Header />
-        <main>
+        <section className="home-page">
           <Hero className="hero" />
           <Testimonials className="testimonials" />
-        </main>
+        </section>
         <Footer />
       </div>
     );

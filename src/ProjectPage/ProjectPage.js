@@ -5,15 +5,17 @@ import "./ProjectPage.css";
 
 class ProjectPage extends React.Component {
   render() {
-    console.log(this.props)
+    const name = this.props.location.projectProps.name;
+    const client = this.props.location.projectProps.client;
+    const description = this.props.location.projectProps.description;
+
     return (
       <div className="project-page-cont">
         <Header />
         <section className="project-page">
-          <h2>Project Title</h2>
-          <h3>Client</h3>
-          <p>Project image</p>
-          <p>Project description</p>
+          <h2>{name}</h2>
+          <h3>{client}</h3>
+          <p>{description}</p>
         </section>
         <Footer />
       </div>
