@@ -1,16 +1,14 @@
 import React from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import { Link } from "react-router-dom";
 import "./AboutPage.css";
 
 class AboutPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+  state = {
       aboutResults: "",
       isLoaded: false,
     };
-  }
 
   componentDidMount() {
     fetch("http://localhost:8000/api/about")
@@ -28,7 +26,12 @@ class AboutPage extends React.Component {
     const renderAbout = () => {
       if (this.state.isLoaded) {
         const aboutText = this.state.aboutResults.about_text;
-        return <p>{aboutText}</p>;
+        return (
+          <>
+            <p>{aboutText}</p>
+            <Link to={"/updateabout"}>Update About</Link>
+          </>
+        );
       } else {
         return <p>loading...</p>;
       }

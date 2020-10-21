@@ -1,0 +1,20 @@
+.up-about-cont{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.up-about-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+}
+
+.update-form{
+  display: flex;
+  flex-direction: column;
+}

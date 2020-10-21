@@ -8,6 +8,7 @@ import ProjectPage from "./ProjectPage/ProjectPage";
 import BlogPage from "./BlogPage/BlogPage";
 import ContactPage from "./ContactPage/ContactPage";
 import UpdateHeroPage from './Hero/UpdateHeroPage/UpdateHeroPage';
+import UpdateAboutPage from './AboutPage/UpdateAboutPage/UpdateAboutPage';
 import NotFoundPage from "./NotFoundPage/NotFoundPage";
 import "./App.css";
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/blog" component={BlogPage} />
         <Route path="/contact" component={ContactPage} />
         <Route path="/updatehero" component={UpdateHeroPage} />
+        <Route path="/updateabout" component={UpdateAboutPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>

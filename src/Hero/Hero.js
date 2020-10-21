@@ -27,7 +27,7 @@ class Hero extends React.Component {
         return (
           <>
             <p>{heroText}</p>
-            <Link className="buttons" to={"/updatehero"}>
+            <Link to={"/updatehero"}>
               Update Hero
             </Link>
           </>

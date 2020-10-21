@@ -1,15 +1,15 @@
 import React from "react";
 import Header from "../../Header/Header.js";
 import Footer from "../../Footer/Footer.js";
-import "./UpdateHeroPage.css";
+import "./UpdateAboutPage.css";
 
-class UpdateHeroPage extends React.Component {
+class UpdateAboutPage extends React.Component {
   state = {
     content: "",
     isLoaded: false,
   };
 
-  handleChange = (e) => {
+  /*handleChange = (e) => {
     this.setState({
       content: e.target.value,
     });
@@ -51,20 +51,20 @@ class UpdateHeroPage extends React.Component {
         })
       )
       .catch((err) => alert(err));
-  }
+  }*/
 
   render() {
     return (
-      <div className="up-hero-cont">
+      <div className="up-about-cont">
         <Header />
-        <section className="up-hero-page">
+        <section className="up-about-page">
           <h2>Update Hero</h2>
-          <form className="update-form" onSubmit={this.handleSubmit}>
-            <label htmlFor="heroText">Hero Text:</label>
+          <form className="update-form">
+            <label htmlFor="aboutText">Hero Text:</label>
             <textarea
               type="text"
-              name="heroText"
-              id="heroText"
+              name="aboutText"
+              id="aboutText"
               onChange={this.handleChange}
               value={this.state.content}
               cols={50}
@@ -83,4 +83,4 @@ class UpdateHeroPage extends React.Component {
   }
 }
 
-export default UpdateHeroPage;
+export default UpdateAboutPage;

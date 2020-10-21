@@ -18,6 +18,7 @@
 
 .about-cont {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   width: 90%;
