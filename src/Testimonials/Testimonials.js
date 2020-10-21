@@ -12,7 +12,7 @@ class Testimonials extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:8000/testimonials")
+    fetch("http://localhost:8000/api/testimonials")
       .then((res) => res.json())
       .then((res) =>
         this.setState({

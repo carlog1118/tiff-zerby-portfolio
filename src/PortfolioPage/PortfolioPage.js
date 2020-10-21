@@ -5,13 +5,11 @@ import Footer from "../Footer/Footer";
 import "./PortfolioPage.css";
 
 class PortfolioPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       projects: "",
       isLoaded: false,
     };
-  }
+  
 
   componentDidMount() {
     fetch("http://localhost:8000/projects")

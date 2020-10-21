@@ -14,7 +14,7 @@ class ServicesPage extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:8000/services")
+    fetch("http://localhost:8000/api/services")
       .then((res) => res.json())
       .then((res) =>
         this.setState({

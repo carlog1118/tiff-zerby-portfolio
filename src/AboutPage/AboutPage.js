@@ -13,7 +13,7 @@ class AboutPage extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:8000/about")
+    fetch("http://localhost:8000/api/about")
       .then((res) => res.json())
       .then((res) =>
         this.setState({
