@@ -15,9 +15,9 @@ class UpdateHeroPage extends React.Component {
     });
   };
 
-  navHome = () => {
+  /*navHome = () => {
     this.props.history.push("/");
-  };
+  };*/
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -32,10 +32,12 @@ class UpdateHeroPage extends React.Component {
         .then((res) => {
           if (!res.ok) {
             throw new Error(res.status);
+          } else {
+            alert('Hero updated.')
           }
         })
         .catch((err) => alert(err))
-        .then(this.navHome());
+        //.then(this.navHome());
     } else {
       alert("Hero must contain some content.");
     }

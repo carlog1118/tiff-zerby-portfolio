@@ -5,24 +5,24 @@ import "./UpdateAboutPage.css";
 
 class UpdateAboutPage extends React.Component {
   state = {
-    content: "",
+    about_text: "",
     isLoaded: false,
   };
 
-  /*handleChange = (e) => {
+  handleChange = (e) => {
     this.setState({
-      content: e.target.value,
+      about_text: e.target.value,
     });
   };
 
-  navHome = () => {
-    this.props.history.push("/");
-  };
+  /*navAbout = () => {
+    this.props.history.push("/about");
+  };*/
 
   handleSubmit = (e) => {
     e.preventDefault();
-    if (this.state.content) {
-      fetch("http://localhost:8000/api/hero/1", {
+    if (this.state.about_text) {
+      fetch("http://localhost:8000/api/about/1", {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -32,41 +32,44 @@ class UpdateAboutPage extends React.Component {
         .then((res) => {
           if (!res.ok) {
             throw new Error(res.status);
+          } else {
+            alert('About updated.')
           }
+
         })
         .catch((err) => alert(err))
-        .then(this.navHome());
+        //.then(this.navAbout());
     } else {
-      alert("Hero must contain some content.");
+      alert("About must contain some content.");
     }
   };
 
   componentDidMount() {
-    fetch("http://localhost:8000/api/hero")
+    fetch("http://localhost:8000/api/about")
       .then((res) => res.json())
       .then((res) =>
         this.setState({
-          content: res[0].content,
+          about_text: res[0].about_text,
           isLoaded: true,
         })
       )
       .catch((err) => alert(err));
-  }*/
+  }
 
   render() {
     return (
       <div className="up-about-cont">
         <Header />
         <section className="up-about-page">
-          <h2>Update Hero</h2>
-          <form className="update-form">
+          <h2>Update About</h2>
+          <form className="update-form" onSubmit={this.handleSubmit}>
             <label htmlFor="aboutText">Hero Text:</label>
             <textarea
               type="text"
               name="aboutText"
               id="aboutText"
               onChange={this.handleChange}
-              value={this.state.content}
+              value={this.state.about_text}
               cols={50}
               rows={25}
               required
