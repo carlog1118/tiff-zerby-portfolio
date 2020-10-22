@@ -1,16 +1,14 @@
 import React from "react";
-import Testimonial from "./Testimonial/Testimonial";
+import { Link } from "react-router-dom";
+import TestimonialCard from "./TestimonialCard/TestimonialCard";
 import "./Testimonials.css";
 
 class Testimonials extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+  state = {
       testimonials: "",
       isLoaded: false,
-    };
-  }
-
+  };
+  
   componentDidMount() {
     fetch("http://localhost:8000/api/testimonials")
       .then((res) => res.json())
@@ -30,12 +28,13 @@ class Testimonials extends React.Component {
           <div>
             <h2>Testimonials</h2>
             {this.state.testimonials.map((test) => (
-              <Testimonial
+              <TestimonialCard
                 isLoaded={this.state.isLoaded}
                 testimonial={test}
                 key={test.id}
               />
             ))}
+            <Link to="/addtest">Add Testimonial</Link>
           </div>
         );
       } else {

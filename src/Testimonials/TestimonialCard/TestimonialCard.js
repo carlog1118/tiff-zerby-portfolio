@@ -1,18 +1,21 @@
 import React from "react";
-import "./Testimonial.css";
+import { Link } from 'react-router-dom';
+import "./TestimonialCard.css";
 
-class Testimonial extends React.Component {
+class TestimonialCard extends React.Component {
   render() {
     const renderCard = () => {
       if (this.props.isLoaded) {
         const author = this.props.testimonial.author;
         const quote = this.props.testimonial.quote;
         const client = this.props.testimonial.client;
+        const id = this.props.testimonial.id;
         return (
           <div>
             <h3 className="client">{client}</h3>
             <q>{quote}</q>
             <p>-{author}</p>
+            <Link to={`/updatetest/${id}`}>Update</Link>
           </div>
         );
       } else {
@@ -24,4 +27,4 @@ class Testimonial extends React.Component {
   }
 }
 
-export default Testimonial;
+export default TestimonialCard;

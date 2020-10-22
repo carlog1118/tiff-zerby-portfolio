@@ -9,7 +9,9 @@ import BlogPage from "./BlogPage/BlogPage";
 import ContactPage from "./ContactPage/ContactPage";
 import UpdateHeroPage from './Hero/UpdateHeroPage/UpdateHeroPage';
 import UpdateAboutPage from './AboutPage/UpdateAboutPage/UpdateAboutPage';
+import UpdateTestPage from './Testimonials/UpdateTestPage/UpdateTestimonialPage';
 import NotFoundPage from "./NotFoundPage/NotFoundPage";
+import AddTestPage from "./Testimonials/AddTestPage/AddTestPage";
 import "./App.css";
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
         <Route path="/contact" component={ContactPage} />
         <Route path="/updatehero" component={UpdateHeroPage} />
         <Route path="/updateabout" component={UpdateAboutPage} />
+        <Route path="/updatetest/:id" component={UpdateTestPage} />
+        <Route path="/addtest" component={AddTestPage}></Route>
         <Route component={NotFoundPage} />
       </Switch>
     </div>

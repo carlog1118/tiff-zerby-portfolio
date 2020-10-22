@@ -33,12 +33,11 @@ class UpdateAboutPage extends React.Component {
           if (!res.ok) {
             throw new Error(res.status);
           } else {
-            alert('About updated.')
+            alert("About updated.");
           }
-
         })
-        .catch((err) => alert(err))
-        //.then(this.navAbout());
+        .catch((err) => alert(err));
+      //.then(this.navAbout());
     } else {
       alert("About must contain some content.");
     }

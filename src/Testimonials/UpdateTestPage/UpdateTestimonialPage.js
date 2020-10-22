@@ -1,10 +1,10 @@
 import React from "react";
 import Header from "../../Header/Header.js";
 import Footer from "../../Footer/Footer.js";
-import "./UpdateHeroPage.css";
+import "./UpdateTestPage.css";
 
-class UpdateHeroPage extends React.Component {
-  state = {
+class UpdateTestPage extends React.Component {
+  /*state = {
     content: "",
     isLoaded: false,
   };
@@ -15,9 +15,9 @@ class UpdateHeroPage extends React.Component {
     });
   };
 
-  /*navHome = () => {
+  navHome = () => {
     this.props.history.push("/");
-  };*/
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -53,28 +53,32 @@ class UpdateHeroPage extends React.Component {
         })
       )
       .catch((err) => alert(err));
-  }
+  }*/
 
   render() {
     return (
-      <div className="up-hero-cont">
+      <div className="up-test-cont">
         <Header />
-        <section className="up-hero-page">
+        <section className="up-test-page">
           <h2>Update Hero</h2>
-          <form className="update-form" onSubmit={this.handleSubmit}>
-            <label htmlFor="heroText">Hero Text:</label>
+          <form className="update-form">
+            <label htmlFor="test-client">Client</label>
+            <input type="text" name="test-client" id="test-client"></input>
+            <label htmlFor="test-quote">Quote</label>
             <textarea
               type="text"
-              name="heroText"
-              id="heroText"
-              onChange={this.handleChange}
-              value={this.state.content}
+              name="test-quote"
+              id="test-quote"
+              
+      
               cols={50}
-              rows={25}
+              rows={10}
               required
             ></textarea>
+            <label htmlFor="test-author">Author</label>
+            <input type="text" name="test-author" id="test-author"></input>
             <button type="submit">Update</button>
-            <button type="button" onClick={this.navHome}>
+            <button type="button">
               Cancel
             </button>
           </form>
@@ -85,4 +89,4 @@ class UpdateHeroPage extends React.Component {
   }
 }
 
-export default UpdateHeroPage;
+export default UpdateTestPage;
