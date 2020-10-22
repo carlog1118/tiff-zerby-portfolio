@@ -10,13 +10,13 @@ class AddTestPage extends React.Component {
     author: "",
   };
 
-  handleChange = (e) => {
+  /*handleChange = (e) => {
     const key = e.target.name;
     const value = e.target.value;
     this.setState({
       [key]: value,
     });
-  };
+  };*/
 
   navHome = () => {
     this.props.history.push("/");
@@ -56,7 +56,7 @@ class AddTestPage extends React.Component {
       <div className="up-test-cont">
         <Header />
         <section className="up-test-page">
-          <h2>Update Hero</h2>
+          <h2>Add Test</h2>
           <form className="update-form" onSubmit={this.handleSubmit}>
             <label htmlFor="client">Client</label>
             <input type="text" name="client" id="client" required></input>
@@ -71,7 +71,7 @@ class AddTestPage extends React.Component {
             ></textarea>
             <label htmlFor="test-author">Author</label>
             <input type="text" name="author" id="author" required></input>
-            <button type="submit">Update</button>
+            <button type="submit">Add</button>
             <button type="button" onClick={this.navHome}>
               Cancel
             </button>
