@@ -4,56 +4,52 @@ import Footer from "../../Footer/Footer.js";
 import "./AddTestPage.css";
 
 class AddTestPage extends React.Component {
-  /*state = {
-    content: "",
-    isLoaded: false,
+  state = {
+    client: "",
+    quote: "",
+    author: "",
   };
 
   handleChange = (e) => {
+    const key = e.target.name;
+    const value = e.target.value;
     this.setState({
-      content: e.target.value,
+      [key]: value,
     });
-  };*/
+  };
 
   navHome = () => {
     this.props.history.push("/");
   };
 
-  /*handleSubmit = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
-    if (this.state.content) {
-      fetch("http://localhost:8000/api/hero/1", {
-        method: "PATCH",
+    console.log(e.target);
+    const { client, quote, author } = e.target;
+    const newTest = {
+      client: client.value,
+      quote: quote.value,
+      author: author.value,
+    };
+
+    if (newTest) {
+      fetch("http://localhost:8000/api/testimonials", {
+        method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(this.state),
+        body: JSON.stringify(newTest),
       })
         .then((res) => {
           if (!res.ok) {
             throw new Error(res.status);
           } else {
-            alert("Hero updated.");
+            alert("Testimonial added.");
           }
         })
-        .catch((err) => alert(err));
-      //.then(this.navHome());
-    } else {
-      alert("Hero must contain some content.");
+        .catch((e) => alert(e));
     }
-  };*/
-
-  /*componentDidMount() {
-    fetch("http://localhost:8000/api/hero")
-      .then((res) => res.json())
-      .then((res) =>
-        this.setState({
-          content: res[0].content,
-          isLoaded: true,
-        })
-      )
-      .catch((err) => alert(err));
-  }*/
+  };
 
   render() {
     return (
@@ -61,22 +57,20 @@ class AddTestPage extends React.Component {
         <Header />
         <section className="up-test-page">
           <h2>Update Hero</h2>
-          <form className="update-form">
-            <label htmlFor="test-client">Client</label>
-            <input type="text" name="test-client" id="test-client"></input>
+          <form className="update-form" onSubmit={this.handleSubmit}>
+            <label htmlFor="client">Client</label>
+            <input type="text" name="client" id="client" required></input>
             <label htmlFor="test-quote">Quote</label>
             <textarea
               type="text"
-              name="test-quote"
-              id="test-quote"
-              
-      
+              name="quote"
+              id="quote"
               cols={50}
               rows={10}
               required
             ></textarea>
             <label htmlFor="test-author">Author</label>
-            <input type="text" name="test-author" id="test-author"></input>
+            <input type="text" name="author" id="author" required></input>
             <button type="submit">Update</button>
             <button type="button" onClick={this.navHome}>
               Cancel
