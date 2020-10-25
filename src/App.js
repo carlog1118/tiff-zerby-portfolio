@@ -9,7 +9,7 @@ import BlogPage from "./BlogPage/BlogPage";
 import ContactPage from "./ContactPage/ContactPage";
 import UpdateHeroPage from './Hero/UpdateHeroPage/UpdateHeroPage';
 import UpdateAboutPage from './AboutPage/UpdateAboutPage/UpdateAboutPage';
-import UpdateTestPage from './Testimonials/UpdateTestPage/UpdateTestimonialPage';
+import UpdateTestPage from './Testimonials/UpdateTestPage/UpdateTestPage';
 import NotFoundPage from "./NotFoundPage/NotFoundPage";
 import AddTestPage from "./Testimonials/AddTestPage/AddTestPage";
 import "./App.css";
