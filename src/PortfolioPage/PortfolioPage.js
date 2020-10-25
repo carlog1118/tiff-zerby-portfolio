@@ -12,7 +12,7 @@ class PortfolioPage extends React.Component {
   
 
   componentDidMount() {
-    fetch("http://localhost:8000/projects")
+    fetch("http://localhost:8000/api/projects")
       .then((res) => res.json())
       .then((res) =>
         this.setState({

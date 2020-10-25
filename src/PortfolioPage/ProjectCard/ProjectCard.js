@@ -3,6 +3,23 @@ import { Link } from "react-router-dom";
 import "./ProjectCard.css";
 
 class ProjectCard extends React.Component {
+  handleDelete = (id, name) => {
+    fetch(`http://localhost:8000/api/projects/${id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(res.status);
+        } else {
+          alert(`${name} project deleted.`);
+        }
+      })
+      .catch((e) => alert(e));
+  };
+
   render() {
     const renderCard = () => {
       const isLoaded = this.props.isLoaded;
@@ -30,6 +47,14 @@ class ProjectCard extends React.Component {
             >
               <h3>{name}</h3>
             </Link>
+            <button
+              type="button"
+              onClick={() => {
+                this.handleDelete(id, name);
+              }}
+            >
+              Delete
+            </button>
             {/*<img className="proj-img" src={image} alt="project screen shot"></img>*/}
           </>
         );
