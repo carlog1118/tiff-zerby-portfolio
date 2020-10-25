@@ -4,15 +4,9 @@ import Footer from "../../Footer/Footer.js";
 import "./UpdateTestPage.css";
 
 class UpdateTestPage extends React.Component {
-  /*state = {
-    content: "",
+  state = {
+    test: "",
     isLoaded: false,
-  };
-
-  handleChange = (e) => {
-    this.setState({
-      content: e.target.value,
-    });
   };
 
   navHome = () => {
@@ -21,68 +15,98 @@ class UpdateTestPage extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    if (this.state.content) {
-      fetch("http://localhost:8000/api/hero/1", {
+    const { testClient, testQuote, testAuthor } = e.target;
+
+    const id = this.props.match.params.id;
+    const updatedTest = {
+      client: testClient.value,
+      quote: testQuote.value,
+      author: testAuthor.value,
+    };
+    if (updatedTest) {
+      fetch(`http://localhost:8000/api/testimonials/${id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(this.state),
+        body: JSON.stringify(updatedTest),
       })
         .then((res) => {
           if (!res.ok) {
             throw new Error(res.status);
           } else {
-            alert("Hero updated.");
+            alert("Testmonial updated.");
           }
         })
         .catch((err) => alert(err));
-      //.then(this.navHome());
     } else {
-      alert("Hero must contain some content.");
+      alert("Testimonial must contain some content.");
     }
   };
 
   componentDidMount() {
-    fetch("http://localhost:8000/api/hero")
+    const id = this.props.match.params.id;
+    fetch(`http://localhost:8000/api/testimonials/${id}`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({
-          content: res[0].content,
+          test: res,
           isLoaded: true,
         })
       )
       .catch((err) => alert(err));
-  }*/
+  }
 
   render() {
+    const renderPage = () => {
+      const client = this.state.test.client;
+      const author = this.state.test.author;
+      const quote = this.state.test.quote;
+      if (this.state.isLoaded) {
+        return (
+          <section className="up-test-page">
+            <h2>Update Testimonial</h2>
+            <form className="update-form" onSubmit={this.handleSubmit}>
+              <label htmlFor="testClient">Client</label>
+              <input
+                type="text"
+                name="testClient"
+                id="testClient"
+                defaultValue={client}
+              ></input>
+              <label htmlFor="testQuote">Quote</label>
+              <textarea
+                type="text"
+                name="testQuote"
+                id="testQuote"
+                cols={50}
+                rows={10}
+                defaultValue={quote}
+                required
+              ></textarea>
+              <label htmlFor="testAuthor">Author</label>
+              <input
+                type="text"
+                name="testAuthor"
+                id="testAuthor"
+                defaultValue={author}
+              ></input>
+              <button type="submit">Update</button>
+              <button type="button" onClick={this.navHome}>
+                Cancel
+              </button>
+            </form>
+          </section>
+        );
+      } else {
+        return <p>Loading...</p>;
+      }
+    };
+
     return (
       <div className="up-test-cont">
         <Header />
-        <section className="up-test-page">
-          <h2>Update Testimonial</h2>
-          <form className="update-form">
-            <label htmlFor="test-client">Client</label>
-            <input type="text" name="test-client" id="test-client"></input>
-            <label htmlFor="test-quote">Quote</label>
-            <textarea
-              type="text"
-              name="test-quote"
-              id="test-quote"
-              
-      
-              cols={50}
-              rows={10}
-              required
-            ></textarea>
-            <label htmlFor="test-author">Author</label>
-            <input type="text" name="test-author" id="test-author"></input>
-            <button type="submit">Update</button>
-            <button type="button">
-              Cancel
-            </button>
-          </form>
-        </section>
+        {renderPage()}
         <Footer />
       </div>
     );

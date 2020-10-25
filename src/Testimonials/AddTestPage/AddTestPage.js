@@ -4,11 +4,6 @@ import Footer from "../../Footer/Footer.js";
 import "./AddTestPage.css";
 
 class AddTestPage extends React.Component {
-  state = {
-    client: "",
-    quote: "",
-    author: "",
-  };
 
   navHome = () => {
     this.props.history.push("/");
