@@ -7,17 +7,16 @@ import ServicesPage from "./ServicesPage/ServicesPage";
 import ProjectPage from "./ProjectPage/ProjectPage";
 import BlogPage from "./BlogPage/BlogPage";
 import ContactPage from "./ContactPage/ContactPage";
-import UpdateHeroPage from './Hero/UpdateHeroPage/UpdateHeroPage';
-import UpdateAboutPage from './AboutPage/UpdateAboutPage/UpdateAboutPage';
-import UpdateTestPage from './Testimonials/UpdateTestPage/UpdateTestPage';
+import UpdateHeroPage from "./Hero/UpdateHeroPage/UpdateHeroPage";
+import UpdateAboutPage from "./AboutPage/UpdateAboutPage/UpdateAboutPage";
+import UpdateTestPage from "./Testimonials/UpdateTestPage/UpdateTestPage";
 import NotFoundPage from "./NotFoundPage/NotFoundPage";
 import AddTestPage from "./Testimonials/AddTestPage/AddTestPage";
 import AddProjectPage from "./PortfolioPage/AddProjectPage/AddProjectPage";
+import UpdateProjectPage from "./PortfolioPage/UpdateProjectPage/UpdateProjectPage";
 import "./App.css";
 
 function App() {
-  
-
   return (
     <div className="App">
       <Switch>
@@ -31,8 +30,9 @@ function App() {
         <Route path="/updatehero" component={UpdateHeroPage} />
         <Route path="/updateabout" component={UpdateAboutPage} />
         <Route path="/updatetest/:id" component={UpdateTestPage} />
-        <Route path="/addtest" component={AddTestPage}></Route>
-        <Route path="/addproject" component={AddProjectPage}></Route>
+        <Route path="/updateproject/:id" component={UpdateProjectPage} />
+        <Route path="/addtest" component={AddTestPage} />
+        <Route path="/addproject" component={AddProjectPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>

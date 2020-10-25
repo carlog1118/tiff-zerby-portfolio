@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import AddProjectPage from "./AddProjectPage";
+import UpdateProjectPage from "./UpdateProjectPage";
 
-describe("AddProjectPage component", () => {
+describe("UpdateProjectPage component", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
     ReactDOM.render(
       <BrowserRouter>
-        <AddProjectPage />
+        <UpdateProjectPage />
       </BrowserRouter>,
       div
     );

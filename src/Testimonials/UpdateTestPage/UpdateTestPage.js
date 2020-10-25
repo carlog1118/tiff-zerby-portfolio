@@ -60,7 +60,7 @@ class UpdateTestPage extends React.Component {
       <div className="up-test-cont">
         <Header />
         <section className="up-test-page">
-          <h2>Update Hero</h2>
+          <h2>Update Testimonial</h2>
           <form className="update-form">
             <label htmlFor="test-client">Client</label>
             <input type="text" name="test-client" id="test-client"></input>

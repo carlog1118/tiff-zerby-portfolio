@@ -4,12 +4,6 @@ import Footer from "../../Footer/Footer.js";
 import "./AddProjectPage.css";
 
 class AddProjectPage extends React.Component {
-  state = {
-    client: "",
-    quote: "",
-    author: "",
-  };
-
   navHome = () => {
     this.props.history.push("/");
   };
@@ -48,12 +42,17 @@ class AddProjectPage extends React.Component {
         <Header />
         <section className="add-proj-page">
           <h2>Add Project</h2>
-          <form className="update-form" onSubmit={this.handleSubmit}>
+          <form className="add-proj-form" onSubmit={this.handleSubmit}>
             <label htmlFor="projName">Project Name</label>
             <input type="text" name="projName" id="projName" required></input>
 
             <label htmlFor="projClient">Client</label>
-            <input type="text" name="projClient" id="projClient" required></input>
+            <input
+              type="text"
+              name="projClient"
+              id="projClient"
+              required
+            ></input>
 
             <label htmlFor="projDescription">Description</label>
             <textarea

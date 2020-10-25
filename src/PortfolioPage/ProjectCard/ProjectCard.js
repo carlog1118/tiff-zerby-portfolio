@@ -47,6 +47,7 @@ class ProjectCard extends React.Component {
             >
               <h3>{name}</h3>
             </Link>
+            <Link to={`/updateproject/${id}`}>Update</Link>
             <button
               type="button"
               onClick={() => {
