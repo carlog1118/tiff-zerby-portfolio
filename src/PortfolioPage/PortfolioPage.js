@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 import ProjectCard from "./ProjectCard/ProjectCard";
 import Footer from "../Footer/Footer";
@@ -50,7 +51,9 @@ class PortfolioPage extends React.Component {
         <section className="projects">
           <h2>Projects</h2>
           {renderPortfolio()}
+          <Link to="/addproject">Add Project</Link>
         </section>
+        
         <Footer />
       </div>
     );

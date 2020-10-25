@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "../../Header/Header.js";
 import Footer from "../../Footer/Footer.js";
-import "./AddTestPage.css";
+import "./AddProjectPage.css";
 
-class AddTestPage extends React.Component {
+class AddProjectPage extends React.Component {
   state = {
     client: "",
     quote: "",
@@ -16,26 +16,26 @@ class AddTestPage extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { client, quote, author } = e.target;
-    const newTest = {
-      client: client.value,
-      quote: quote.value,
-      author: author.value,
+    const { projName, projClient, projDescription } = e.target;
+    const newProject = {
+      name: projName.value,
+      client: projClient.value,
+      description: projDescription.value,
     };
 
-    if (newTest) {
-      fetch("http://localhost:8000/api/testimonials", {
+    if (newProject) {
+      fetch("http://localhost:8000/api/projects", {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(newTest),
+        body: JSON.stringify(newProject),
       })
         .then((res) => {
           if (!res.ok) {
             throw new Error(res.status);
           } else {
-            alert("Testimonial added.");
+            alert("Project added.");
           }
         })
         .catch((e) => alert(e));
@@ -44,24 +44,26 @@ class AddTestPage extends React.Component {
 
   render() {
     return (
-      <div className="up-test-cont">
+      <div className="add-proj-cont">
         <Header />
-        <section className="up-test-page">
-          <h2>Add Test</h2>
+        <section className="add-proj-page">
+          <h2>Add Project</h2>
           <form className="update-form" onSubmit={this.handleSubmit}>
-            <label htmlFor="client">Client</label>
-            <input type="text" name="client" id="client" required></input>
-            <label htmlFor="test-quote">Quote</label>
+            <label htmlFor="projName">Project Name</label>
+            <input type="text" name="projName" id="projName" required></input>
+
+            <label htmlFor="projClient">Client</label>
+            <input type="text" name="projClient" id="projClient" required></input>
+
+            <label htmlFor="projDescription">Description</label>
             <textarea
               type="text"
-              name="quote"
-              id="quote"
+              name="projDescription"
+              id="projDescription"
               cols={50}
               rows={10}
               required
             ></textarea>
-            <label htmlFor="test-author">Author</label>
-            <input type="text" name="author" id="author" required></input>
             <button type="submit">Add</button>
             <button type="button" onClick={this.navHome}>
               Cancel
@@ -74,4 +76,4 @@ class AddTestPage extends React.Component {
   }
 }
 
-export default AddTestPage;
+export default AddProjectPage;

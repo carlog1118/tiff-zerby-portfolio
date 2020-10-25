@@ -1,0 +1,20 @@
+.add-proj-cont{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.add-proj-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+}
+
+.add-proj-form{
+  display: flex;
+  flex-direction: column;
+}

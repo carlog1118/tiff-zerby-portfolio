@@ -12,6 +12,7 @@ import UpdateAboutPage from './AboutPage/UpdateAboutPage/UpdateAboutPage';
 import UpdateTestPage from './Testimonials/UpdateTestPage/UpdateTestPage';
 import NotFoundPage from "./NotFoundPage/NotFoundPage";
 import AddTestPage from "./Testimonials/AddTestPage/AddTestPage";
+import AddProjectPage from "./PortfolioPage/AddProjectPage/AddProjectPage";
 import "./App.css";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/updateabout" component={UpdateAboutPage} />
         <Route path="/updatetest/:id" component={UpdateTestPage} />
         <Route path="/addtest" component={AddTestPage}></Route>
+        <Route path="/addproject" component={AddProjectPage}></Route>
         <Route component={NotFoundPage} />
       </Switch>
     </div>
