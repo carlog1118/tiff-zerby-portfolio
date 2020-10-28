@@ -5,11 +5,15 @@ import "./Testimonials.css";
 
 class Testimonials extends React.Component {
   state = {
-      testimonials: "",
+      testimonials: [],
       isLoaded: false,
   };
   
-  componentDidMount() {
+  updateTestimonials = () => {
+    (console.log('update testimonials ran'))
+  }
+
+  getTestimonials = () => {
     fetch("http://localhost:8000/api/testimonials")
       .then((res) => res.json())
       .then((res) =>
@@ -19,6 +23,10 @@ class Testimonials extends React.Component {
         })
       )
       .catch((err) => alert(err));
+  }
+
+  componentDidMount() {
+    this.getTestimonials();
   }
 
   render() {

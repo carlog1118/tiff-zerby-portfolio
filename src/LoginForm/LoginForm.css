@@ -1,0 +1,20 @@
+.login-cont{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+}

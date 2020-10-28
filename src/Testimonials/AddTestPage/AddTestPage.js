@@ -37,6 +37,10 @@ class AddTestPage extends React.Component {
     }
   };
 
+  componentDidMount(){
+    console.log(this.props)
+  }
+
   render() {
     return (
       <div className="up-test-cont">

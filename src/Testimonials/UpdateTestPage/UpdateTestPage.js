@@ -38,6 +38,7 @@ class UpdateTestPage extends React.Component {
             alert("Testmonial updated.");
           }
         })
+        .then()
         .catch((err) => alert(err));
     } else {
       alert("Testimonial must contain some content.");
