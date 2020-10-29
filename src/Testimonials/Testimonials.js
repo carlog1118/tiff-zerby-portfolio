@@ -1,17 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import TokenService from "../Utils/TokenService";
 import TestimonialCard from "./TestimonialCard/TestimonialCard";
 import "./Testimonials.css";
 
 class Testimonials extends React.Component {
   state = {
-      testimonials: [],
-      isLoaded: false,
+    testimonials: [],
+    isLoaded: false,
   };
-  
-  updateTestimonials = () => {
-    (console.log('update testimonials ran'))
-  }
+
+  renderOwnerControls = () => {
+    if (TokenService.hasAuthToken()) {
+      return (
+        <>
+          <Link to="/addtest">Add Testimonial</Link>
+        </>
+      );
+    }
+  };
 
   getTestimonials = () => {
     fetch("http://localhost:8000/api/testimonials")
@@ -23,7 +30,7 @@ class Testimonials extends React.Component {
         })
       )
       .catch((err) => alert(err));
-  }
+  };
 
   componentDidMount() {
     this.getTestimonials();
@@ -42,7 +49,6 @@ class Testimonials extends React.Component {
                 key={test.id}
               />
             ))}
-            <Link to="/addtest">Add Testimonial</Link>
           </div>
         );
       } else {

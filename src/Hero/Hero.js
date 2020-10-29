@@ -9,6 +9,12 @@ class Hero extends React.Component {
     isLoaded: false,
   };
 
+  renderOwnerControls = () => {
+    if (TokenService.hasAuthToken()) {
+      return <Link to={"/updatehero"}>Update</Link>;
+    }
+  };
+
   componentDidMount() {
     fetch("http://localhost:8000/api/hero")
       .then((res) => res.json())
@@ -22,22 +28,13 @@ class Hero extends React.Component {
   }
 
   render() {
-    /*const renderOwnerControls = () => {
-      if(TokenService.hasAuthToken()) {
-        return (
-          
-        )
-      }
-    }*/
-
     const renderHero = () => {
       if (this.state.isLoaded) {
         const heroText = this.state.heroResults.content;
         return (
           <>
             <p>{heroText}</p>
-            
-            
+            {this.renderOwnerControls()}
           </>
         );
       } else {

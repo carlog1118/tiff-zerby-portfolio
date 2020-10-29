@@ -1,8 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import TokenService from "../../Utils/TokenService";
 import "./ProjectCard.css";
 
 class ProjectCard extends React.Component {
+  renderOwnerControls = () => {
+    const name = this.props.project.name;
+    const id = this.props.project.id;
+    if (TokenService.hasAuthToken()) {
+      return (
+        <>
+          <Link to={`/updateproject/${id}`}>Update</Link>
+          <button
+            type="button"
+            onClick={() => {
+              this.handleDelete(id, name);
+            }}
+          >
+            Delete
+          </button>
+        </>
+      );
+    }
+  };
+
   handleDelete = (id, name) => {
     fetch(`http://localhost:8000/api/projects/${id}`, {
       method: "DELETE",
@@ -47,15 +68,7 @@ class ProjectCard extends React.Component {
             >
               <h3>{name}</h3>
             </Link>
-            <Link to={`/updateproject/${id}`}>Update</Link>
-            <button
-              type="button"
-              onClick={() => {
-                this.handleDelete(id, name);
-              }}
-            >
-              Delete
-            </button>
+            {this.renderOwnerControls()}
             {/*<img className="proj-img" src={image} alt="project screen shot"></img>*/}
           </>
         );

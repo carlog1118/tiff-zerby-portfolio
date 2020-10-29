@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
+import TokenService from "../Utils/TokenService";
 import ProjectCard from "./ProjectCard/ProjectCard";
 import Footer from "../Footer/Footer";
 import "./PortfolioPage.css";
@@ -11,6 +12,15 @@ class PortfolioPage extends React.Component {
       isLoaded: false,
     };
   
+    renderOwnerControls = () => {
+      if (TokenService.hasAuthToken()) {
+        return (
+          <>
+            <Link to="/addproject">Add Project</Link>
+          </>
+        );
+      }
+    };
 
   componentDidMount() {
     fetch("http://localhost:8000/api/projects")
@@ -37,6 +47,7 @@ class PortfolioPage extends React.Component {
                   key={project.id}
                 />
               ))}
+              {this.renderOwnerControls()}
             </div>
           </>
         );
@@ -51,7 +62,7 @@ class PortfolioPage extends React.Component {
         <section className="projects">
           <h2>Projects</h2>
           {renderPortfolio()}
-          <Link to="/addproject">Add Project</Link>
+  
         </section>
         
         <Footer />

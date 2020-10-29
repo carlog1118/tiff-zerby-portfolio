@@ -1,14 +1,25 @@
 import React from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import TokenService from "../Utils/TokenService";
 import { Link } from "react-router-dom";
 import "./AboutPage.css";
 
 class AboutPage extends React.Component {
   state = {
-      aboutResults: "",
-      isLoaded: false,
-    };
+    aboutResults: "",
+    isLoaded: false,
+  };
+
+  renderOwnerControls = () => {
+    if (TokenService.hasAuthToken()) {
+      return (
+        <>
+          <Link to={"/updateabout"}>Update About</Link>
+        </>
+      );
+    }
+  };
 
   componentDidMount() {
     fetch("http://localhost:8000/api/about")
@@ -29,7 +40,7 @@ class AboutPage extends React.Component {
         return (
           <>
             <p>{aboutText}</p>
-            <Link to={"/updateabout"}>Update About</Link>
+            {this.renderOwnerControls()}
           </>
         );
       } else {
@@ -61,7 +72,7 @@ class AboutPage extends React.Component {
             {/*{renderImage()}*/}
             {renderAbout()}
           </div>
-          <button type="button">Let's Talk</button>
+          <Link to={"/contact"}>Let's Talk</Link>
         </section>
         <Footer />
       </div>
