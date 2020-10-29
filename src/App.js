@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import PrivateRoute from "./Utils/PrivateRoute";
 import HomePage from "./HomePage/HomePage.js";
 import AboutPage from "./AboutPage/AboutPage";
 import PortfolioPage from "./PortfolioPage/PortfolioPage";
@@ -19,11 +20,6 @@ import "./App.css";
 
 class App extends React.Component {
 
-
-  updateApp= () => {
-    console.log('update app ran')
-  }
-
   render() {
     return (
       <div className="App">
@@ -35,12 +31,12 @@ class App extends React.Component {
           <Route path="/project/:projectId" component={ProjectPage} />
           <Route path="/blog" component={BlogPage} />
           <Route path="/contact" component={ContactPage} />
-          <Route path="/updatehero" component={UpdateHeroPage} />
-          <Route path="/updateabout" component={UpdateAboutPage} />
-          <Route path="/updatetest/:id" component={UpdateTestPage} />
-          <Route path="/updateproject/:id" component={UpdateProjectPage} />
-          <Route path="/addtest" component={AddTestPage} onAdd={this.updateApp} />
-          <Route path="/addproject" component={AddProjectPage} />
+          <PrivateRoute path="/updatehero" component={UpdateHeroPage} />
+          <PrivateRoute path="/updateabout" component={UpdateAboutPage} />
+          <PrivateRoute path="/updatetest/:id" component={UpdateTestPage} />
+          <PrivateRoute path="/updateproject/:id" component={UpdateProjectPage} />
+          <PrivateRoute path="/addtest" component={AddTestPage} />
+          <PrivateRoute path="/addproject" component={AddProjectPage} />
           <Route path="/login" component={LoginForm}></Route>
           <Route component={NotFoundPage} />
         </Switch>

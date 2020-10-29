@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import TokenService from "../Utils/TokenService";
 import "./Hero.css";
 
 class Hero extends React.Component {
@@ -21,15 +22,22 @@ class Hero extends React.Component {
   }
 
   render() {
+    /*const renderOwnerControls = () => {
+      if(TokenService.hasAuthToken()) {
+        return (
+          
+        )
+      }
+    }*/
+
     const renderHero = () => {
       if (this.state.isLoaded) {
         const heroText = this.state.heroResults.content;
         return (
           <>
             <p>{heroText}</p>
-            <Link to={"/updatehero"}>
-              Update Hero
-            </Link>
+            
+            
           </>
         );
       } else {
