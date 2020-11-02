@@ -4,17 +4,19 @@ import Footer from "../../Footer/Footer.js";
 import "./AddProjectPage.css";
 
 class AddProjectPage extends React.Component {
+
   navHome = () => {
     this.props.history.push("/");
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { projName, projClient, projDescription } = e.target;
+    const { projName, projClient, projDescription, image_url } = e.target;
     const newProject = {
       name: projName.value,
       client: projClient.value,
       description: projDescription.value,
+      image_url: image_url.value
     };
 
     if (newProject) {
@@ -63,6 +65,8 @@ class AddProjectPage extends React.Component {
               rows={10}
               required
             ></textarea>
+            <label htmlFor="image_url">Image Url:</label>
+            <input type="text" name="image_url" id="image_url"></input>
             <button type="submit">Add</button>
             <button type="button" onClick={this.navHome}>
               Cancel

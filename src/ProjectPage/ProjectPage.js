@@ -30,7 +30,6 @@ class ProjectPage extends React.Component {
 
   componentDidMount() {
     const id = this.props.match.params.projectId;
-    console.log(id);
 
     fetch(`http://localhost:8000/api/projects/${id}`)
       .then((res) => res.json())

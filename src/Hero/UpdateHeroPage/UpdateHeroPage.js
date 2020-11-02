@@ -6,13 +6,24 @@ import "./UpdateHeroPage.css";
 class UpdateHeroPage extends React.Component {
   state = {
     content: "",
+    image_url: "",
     isLoaded: false,
   };
 
-  handleChange = (e) => {
+  handleContentChange = (e) => {
     this.setState({
       content: e.target.value,
     });
+  };
+
+  handleImageChange = (e) => {
+    this.setState({
+      image_url: e.target.value,
+    });
+  };
+
+  navHome = () => {
+    this.props.history.push("/");
   };
 
   handleSubmit = (e) => {
@@ -44,6 +55,7 @@ class UpdateHeroPage extends React.Component {
       .then((res) =>
         this.setState({
           content: res[0].content,
+          image_url: res[0].image_url,
           isLoaded: true,
         })
       )
@@ -62,12 +74,20 @@ class UpdateHeroPage extends React.Component {
               type="text"
               name="heroText"
               id="heroText"
-              onChange={this.handleChange}
+              onChange={this.handleContentChange}
               value={this.state.content}
               cols={50}
               rows={25}
               required
             ></textarea>
+            <label htmlFor="image_url">Image Url:</label>
+            <input
+              type="text"
+              name="image_url"
+              id="image_url"
+              onChange={this.handleImageChange}
+              value={this.state.image_url}
+            ></input>
             <button type="submit">Update</button>
             <button type="button" onClick={this.navHome}>
               Cancel
