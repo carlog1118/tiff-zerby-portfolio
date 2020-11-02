@@ -11,6 +11,25 @@ class AboutPage extends React.Component {
     isLoaded: false,
   };
 
+  renderAbout = () => {
+    if (this.state.isLoaded) {
+      const aboutText = this.state.aboutResults.about_text;
+      const imageUrl = this.state.aboutResults.image_url.replace(
+        "?dl=0",
+        "?raw=1"
+      );
+      return (
+        <>
+          <img src={imageUrl} alt="dog"></img>
+          <p>{aboutText}</p>
+          {this.renderOwnerControls()}
+        </>
+      );
+    } else {
+      return <p>loading...</p>;
+    }
+  };
+
   renderOwnerControls = () => {
     if (TokenService.hasAuthToken()) {
       return (
@@ -34,44 +53,12 @@ class AboutPage extends React.Component {
   }
 
   render() {
-    const renderAbout = () => {
-      if (this.state.isLoaded) {
-        const aboutText = this.state.aboutResults.about_text;
-        return (
-          <>
-            <p>{aboutText}</p>
-            {this.renderOwnerControls()}
-          </>
-        );
-      } else {
-        return <p>loading...</p>;
-      }
-    };
-
-    /*const renderImage = () => {
-      if (this.state.isLoaded) {
-        const aboutImg = this.state.aboutResults._embedded[
-          "wp:featuredmedia"
-        ][0].media_details.sizes.medium.source_url;
-        return (
-          <img
-            className="head"
-            src={aboutImg}
-            alt="Tiffany Zerby's headshot"
-          ></img>
-        );
-      }
-    };*/
-
     return (
       <div className="about-page-container">
         <Header />
         <section className="about-section">
           <h2>About me</h2>
-          <div className="about-cont">
-            {/*{renderImage()}*/}
-            {renderAbout()}
-          </div>
+          <div className="about-cont">{this.renderAbout()}</div>
           <Link to={"/contact"}>Let's Talk</Link>
         </section>
         <Footer />

@@ -10,6 +10,25 @@ class Testimonials extends React.Component {
     isLoaded: false,
   };
 
+  renderTestimonial = () => {
+    if (this.state.isLoaded) {
+      return (
+        <div>
+          <h2>Testimonials</h2>
+          {this.state.testimonials.map((test) => (
+            <TestimonialCard
+              isLoaded={this.state.isLoaded}
+              testimonial={test}
+              key={test.id}
+            />
+          ))}
+        </div>
+      );
+    } else {
+      return <p>Loading...</p>;
+    }
+  };
+
   renderOwnerControls = () => {
     if (TokenService.hasAuthToken()) {
       return (
@@ -37,26 +56,9 @@ class Testimonials extends React.Component {
   }
 
   render() {
-    const renderTestimonial = () => {
-      if (this.state.isLoaded) {
-        return (
-          <div>
-            <h2>Testimonials</h2>
-            {this.state.testimonials.map((test) => (
-              <TestimonialCard
-                isLoaded={this.state.isLoaded}
-                testimonial={test}
-                key={test.id}
-              />
-            ))}
-          </div>
-        );
-      } else {
-        return <p>Loading...</p>;
-      }
-    };
-
-    return <section className="testimonials">{renderTestimonial()}</section>;
+    return (
+      <section className="testimonials">{this.renderTestimonial()}</section>
+    );
   }
 }
 

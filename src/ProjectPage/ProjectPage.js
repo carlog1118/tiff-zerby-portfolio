@@ -4,19 +4,50 @@ import Footer from "../Footer/Footer";
 import "./ProjectPage.css";
 
 class ProjectPage extends React.Component {
-  render() {
-    const name = this.props.location.projectProps.name;
-    const client = this.props.location.projectProps.client;
-    const description = this.props.location.projectProps.description;
+  state = {
+    project: {},
+    isLoaded: false,
+  };
 
+  renderProjectPage = () => {
+    if (this.state.isLoaded) {
+      const name = this.state.project.name;
+      const client = this.state.project.client;
+      const description = this.state.project.description;
+      const imageUrl = this.state.project.image_url.replace("?dl=0", "?raw=1");
+      return (
+        <>
+          <h2>{name}</h2>
+          <img src={imageUrl}></img>
+          <h3>{client}</h3>
+          <p>{description}</p>
+        </>
+      );
+    } else {
+      return <p>Loading...</p>;
+    }
+  };
+
+  componentDidMount() {
+    const id = this.props.match.params.projectId;
+    console.log(id);
+
+    fetch(`http://localhost:8000/api/projects/${id}`)
+      .then((res) => res.json())
+      .then((res) =>
+        this.setState({
+          project: res,
+          isLoaded: true,
+        })
+      )
+      .catch((err) => alert(err));
+  }
+
+  render() {
     return (
       <div className="project-page-cont">
         <Header />
-        <section className="project-page">
-          <h2>{name}</h2>
-          <h3>{client}</h3>
-          <p>{description}</p>
-        </section>
+        <section className="project-page">{this.renderProjectPage()}</section>
         <Footer />
       </div>
     );

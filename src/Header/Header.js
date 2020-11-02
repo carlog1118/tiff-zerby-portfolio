@@ -10,19 +10,19 @@ class Header extends React.Component {
     TokenService.clearAuthToken();
   };
 
-  render() {
-    const renderLogOut = () => {
-      if (TokenService.hasAuthToken()) {
-        return (
-          <li>
-            <Link to="/login" onClick={() => this.handleLogOut()}>
-              Log Out
-            </Link>
-          </li>
-        );
-      }
-    };
+  renderLogOut = () => {
+    if (TokenService.hasAuthToken()) {
+      return (
+        <li>
+          <Link to="/login" onClick={() => this.handleLogOut()}>
+            Log Out
+          </Link>
+        </li>
+      );
+    }
+  };
 
+  render() {
     return (
       <header>
         <Link className="img-link" to="/">
@@ -55,7 +55,7 @@ class Header extends React.Component {
                 Let's Talk
               </Link>
             </li>
-            {renderLogOut()}
+            {this.renderLogOut()}
           </ul>
         </nav>
         <div className="placeholder"></div>

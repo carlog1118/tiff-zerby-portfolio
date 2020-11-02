@@ -7,20 +7,41 @@ import Footer from "../Footer/Footer";
 import "./PortfolioPage.css";
 
 class PortfolioPage extends React.Component {
-    state = {
-      projects: "",
-      isLoaded: false,
-    };
-  
-    renderOwnerControls = () => {
-      if (TokenService.hasAuthToken()) {
-        return (
-          <>
-            <Link to="/addproject">Add Project</Link>
-          </>
-        );
-      }
-    };
+  state = {
+    projects: "",
+    isLoaded: false,
+  };
+
+  renderPortfolio = () => {
+    if (this.state.isLoaded) {
+      return (
+        <>
+          <div className="proj-card-container">
+            {this.state.projects.map((project) => (
+              <ProjectCard
+                isLoaded={this.state.isLoaded}
+                project={project}
+                key={project.id}
+              />
+            ))}
+            {this.renderOwnerControls()}
+          </div>
+        </>
+      );
+    } else {
+      return <p>Loading...</p>;
+    }
+  };
+
+  renderOwnerControls = () => {
+    if (TokenService.hasAuthToken()) {
+      return (
+        <>
+          <Link to="/addproject">Add Project</Link>
+        </>
+      );
+    }
+  };
 
   componentDidMount() {
     fetch("http://localhost:8000/api/projects")
@@ -35,36 +56,14 @@ class PortfolioPage extends React.Component {
   }
 
   render() {
-    const renderPortfolio = () => {
-      if (this.state.isLoaded) {
-        return (
-          <>
-            <div className="proj-card-container">
-              {this.state.projects.map((project) => (
-                <ProjectCard
-                  isLoaded={this.state.isLoaded}
-                  project={project}
-                  key={project.id}
-                />
-              ))}
-              {this.renderOwnerControls()}
-            </div>
-          </>
-        );
-      } else {
-        return <p>Loading...</p>;
-      }
-    };
-
     return (
       <div className="projects-page">
         <Header />
         <section className="projects">
           <h2>Projects</h2>
-          {renderPortfolio()}
-  
+          {this.renderPortfolio()}
         </section>
-        
+
         <Footer />
       </div>
     );

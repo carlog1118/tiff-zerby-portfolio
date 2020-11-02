@@ -4,6 +4,24 @@ import TokenService from "../../Utils/TokenService";
 import "./TestimonialCard.css";
 
 class TestimonialCard extends React.Component {
+  renderCard = () => {
+    if (this.props.isLoaded) {
+      const author = this.props.testimonial.author;
+      const quote = this.props.testimonial.quote;
+      const client = this.props.testimonial.client;
+      return (
+        <div>
+          <h3 className="client">{client}</h3>
+          <q>{quote}</q>
+          <p>-{author}</p>
+          {this.renderOwnerControls()}
+        </div>
+      );
+    } else {
+      return <p>Loading...</p>;
+    }
+  };
+
   handleDelete = (id, client) => {
     fetch(`http://localhost:8000/api/testimonials/${id}`, {
       method: "DELETE",
@@ -38,29 +56,11 @@ class TestimonialCard extends React.Component {
           <Link to={`/updatetest/${id}`}>Update</Link>
         </>
       );
-    } 
+    }
   };
 
   render() {
-    const renderCard = () => {
-      if (this.props.isLoaded) {
-        const author = this.props.testimonial.author;
-        const quote = this.props.testimonial.quote;
-        const client = this.props.testimonial.client;
-        return (
-          <div>
-            <h3 className="client">{client}</h3>
-            <q>{quote}</q>
-            <p>-{author}</p>
-            {this.renderOwnerControls()}
-          </div>
-        );
-      } else {
-        return <p>Loading...</p>;
-      }
-    };
-
-    return <div className="test-card-cont">{renderCard()}</div>;
+    return <div className="test-card-cont">{this.renderCard()}</div>;
   }
 }
 

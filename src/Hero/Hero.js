@@ -9,6 +9,26 @@ class Hero extends React.Component {
     isLoaded: false,
   };
 
+  renderHero = () => {
+    if (this.state.isLoaded) {
+      const heroText = this.state.heroResults.content;
+      const imageUrl = this.state.heroResults.image_url.replace(
+        "?dl=0",
+        "?raw=1"
+      );
+
+      return (
+        <>
+          <img src={imageUrl} alt="hero image"></img>
+          <p>{heroText}</p>
+          {this.renderOwnerControls()}
+        </>
+      );
+    } else {
+      return <p>Loading...</p>;
+    }
+  };
+
   renderOwnerControls = () => {
     if (TokenService.hasAuthToken()) {
       return <Link to={"/updatehero"}>Update</Link>;
@@ -28,23 +48,9 @@ class Hero extends React.Component {
   }
 
   render() {
-    const renderHero = () => {
-      if (this.state.isLoaded) {
-        const heroText = this.state.heroResults.content;
-        return (
-          <>
-            <p>{heroText}</p>
-            {this.renderOwnerControls()}
-          </>
-        );
-      } else {
-        return <p>Loading...</p>;
-      }
-    };
-
     return (
       <section className="hero">
-        {renderHero()}
+        {this.renderHero()}
         <div className="buttons">
           <a>Strategy</a>
           <a>Content</a>

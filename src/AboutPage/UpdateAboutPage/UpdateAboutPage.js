@@ -15,10 +15,6 @@ class UpdateAboutPage extends React.Component {
     });
   };
 
-  /*navAbout = () => {
-    this.props.history.push("/about");
-  };*/
-
   handleSubmit = (e) => {
     e.preventDefault();
     if (this.state.about_text) {
@@ -37,7 +33,6 @@ class UpdateAboutPage extends React.Component {
           }
         })
         .catch((err) => alert(err));
-      //.then(this.navAbout());
     } else {
       alert("About must contain some content.");
     }
