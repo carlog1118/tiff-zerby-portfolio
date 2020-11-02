@@ -9,6 +9,51 @@ class UpdateTestPage extends React.Component {
     isLoaded: false,
   };
 
+  renderPage = () => {
+    const client = this.state.test.client;
+    const author = this.state.test.author;
+    const quote = this.state.test.quote;
+    if (this.state.isLoaded) {
+      return (
+        <section className="up-test-page">
+          <h2>Update Testimonial</h2>
+          <form className="update-form" onSubmit={this.handleSubmit}>
+            <label htmlFor="testClient">Client</label>
+            <input
+              type="text"
+              name="testClient"
+              id="testClient"
+              defaultValue={client}
+            ></input>
+            <label htmlFor="testQuote">Quote</label>
+            <textarea
+              type="text"
+              name="testQuote"
+              id="testQuote"
+              cols={50}
+              rows={10}
+              defaultValue={quote}
+              required
+            ></textarea>
+            <label htmlFor="testAuthor">Author</label>
+            <input
+              type="text"
+              name="testAuthor"
+              id="testAuthor"
+              defaultValue={author}
+            ></input>
+            <button type="submit">Update</button>
+            <button type="button" onClick={this.navHome}>
+              Cancel
+            </button>
+          </form>
+        </section>
+      );
+    } else {
+      return <p>Loading...</p>;
+    }
+  };
+
   navHome = () => {
     this.props.history.push("/");
   };
@@ -59,55 +104,10 @@ class UpdateTestPage extends React.Component {
   }
 
   render() {
-    const renderPage = () => {
-      const client = this.state.test.client;
-      const author = this.state.test.author;
-      const quote = this.state.test.quote;
-      if (this.state.isLoaded) {
-        return (
-          <section className="up-test-page">
-            <h2>Update Testimonial</h2>
-            <form className="update-form" onSubmit={this.handleSubmit}>
-              <label htmlFor="testClient">Client</label>
-              <input
-                type="text"
-                name="testClient"
-                id="testClient"
-                defaultValue={client}
-              ></input>
-              <label htmlFor="testQuote">Quote</label>
-              <textarea
-                type="text"
-                name="testQuote"
-                id="testQuote"
-                cols={50}
-                rows={10}
-                defaultValue={quote}
-                required
-              ></textarea>
-              <label htmlFor="testAuthor">Author</label>
-              <input
-                type="text"
-                name="testAuthor"
-                id="testAuthor"
-                defaultValue={author}
-              ></input>
-              <button type="submit">Update</button>
-              <button type="button" onClick={this.navHome}>
-                Cancel
-              </button>
-            </form>
-          </section>
-        );
-      } else {
-        return <p>Loading...</p>;
-      }
-    };
-
     return (
       <div className="up-test-cont">
         <Header />
-        {renderPage()}
+        {this.renderPage()}
         <Footer />
       </div>
     );
