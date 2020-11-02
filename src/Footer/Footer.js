@@ -1,15 +1,13 @@
 import React from "react";
+import MailchimpSubscribe from "react-mailchimp-subscribe";
+
 import "./Footer.css";
 
 class Footer extends React.Component {
   render() {
     return (
       <footer>
-        <form>
-          <label htmlFor="email"></label>
-          <input type="text" id="email" placeholder="E-mail"></input>
-          <input type="submit" value="Subscribe"></input>
-        </form>
+        <MailchimpSubscribe url="https://gmail.us17.list-manage.com/subscribe/post?u=282d8fce867cb528332793893&amp;id=bc6a6da0df" />
         <div className="social-media">
           <div className="icon">LI</div>
           <div className="icon">Email</div>
