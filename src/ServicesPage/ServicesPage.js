@@ -1,18 +1,48 @@
 import React from "react";
 import Header from "../Header/Header";
 import ServiceCard from "./ServiceCard/ServiceCard";
+import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
+import TokenService from "../Utils/TokenService";
 import "./ServicesPage.css";
 
 class ServicesPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      services: "",
-      isLoaded: false,
-    };
-  }
+  state = {
+    services: "",
+    isLoaded: false,
+  };
 
+  renderServices = () => {
+    if (this.state.isLoaded) {
+      return (
+        <>
+          <div className="service-card-container">
+            {this.state.services.map((service) => (
+              <ServiceCard
+                isLoaded={this.state.isLoaded}
+                service={service}
+                key={service.id}
+              />
+            ))}
+          </div>
+          {this.renderOwnerControls()}
+        </>
+      );
+    } else {
+      return <p>Loading...</p>;
+    }
+  };
+
+  renderOwnerControls = () => {
+    if (TokenService.hasAuthToken()) {
+      return (
+        <>
+          <Link to="/addservice">Add Service</Link>
+        </>
+      );
+    }
+  };
+  
   componentDidMount() {
     fetch("http://localhost:8000/api/services")
       .then((res) => res.json())
@@ -26,32 +56,14 @@ class ServicesPage extends React.Component {
   }
 
   render() {
-    const renderServices = () => {
-      if (this.state.isLoaded) {
-        return (
-          <>
-            <div className="service-card-container">
-              {this.state.services.map((service) => (
-                <ServiceCard
-                  isLoaded={this.state.isLoaded}
-                  service={service}
-                  key={service.id}
-                />
-              ))}
-            </div>
-          </>
-        );
-      } else {
-        return <p>Loading...</p>;
-      }
-    };
+    
 
     return (
       <div className="services-page">
         <Header />
         <section className="services">
           <h2>Services</h2>
-          {renderServices()}
+          {this.renderServices()}
         </section>
         <Footer />
       </div>

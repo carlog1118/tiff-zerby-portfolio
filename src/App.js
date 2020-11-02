@@ -14,6 +14,7 @@ import UpdateTestPage from "./Testimonials/UpdateTestPage/UpdateTestPage";
 import NotFoundPage from "./NotFoundPage/NotFoundPage";
 import AddTestPage from "./Testimonials/AddTestPage/AddTestPage";
 import AddProjectPage from "./PortfolioPage/AddProjectPage/AddProjectPage";
+import AddServicePage from './ServicesPage/AddServicePage/AddServicePage';
 import UpdateProjectPage from "./PortfolioPage/UpdateProjectPage/UpdateProjectPage";
 import LoginForm from "./LoginForm/LoginForm";
 import "./App.css";
@@ -37,6 +38,7 @@ class App extends React.Component {
           <PrivateRoute path="/updateproject/:id" component={UpdateProjectPage} />
           <PrivateRoute path="/addtest" component={AddTestPage} />
           <PrivateRoute path="/addproject" component={AddProjectPage} />
+          <PrivateRoute path="/addservice" component={AddServicePage} />
           <Route path="/login" component={LoginForm}></Route>
           <Route component={NotFoundPage} />
         </Switch>

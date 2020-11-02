@@ -22,6 +22,7 @@ class Testimonials extends React.Component {
               key={test.id}
             />
           ))}
+          {this.renderOwnerControls()}
         </div>
       );
     } else {
