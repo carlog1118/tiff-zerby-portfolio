@@ -9,6 +9,7 @@ class ServiceCard extends React.Component {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
+        "authorization": `bearer ${TokenService.getAuthToken()}`
       },
     })
       .then((res) => {

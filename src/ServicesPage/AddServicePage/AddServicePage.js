@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../../Header/Header.js";
 import Footer from "../../Footer/Footer.js";
+import TokenService from "../../Utils/TokenService";
 import "./AddServicePage.css";
 
 class AddServicePage extends React.Component {
@@ -21,6 +22,7 @@ class AddServicePage extends React.Component {
         method: "POST",
         headers: {
           "content-type": "application/json",
+          "authorization": `bearer ${TokenService.getAuthToken()}`
         },
         body: JSON.stringify(newService),
       })

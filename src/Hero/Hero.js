@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import HeroButtons from './HeroButtons/HeroButtons';
 import TokenService from "../Utils/TokenService";
 import "./Hero.css";
 
@@ -22,6 +23,7 @@ class Hero extends React.Component {
           <img src={imageUrl} alt="hero image"></img>
           <p>{heroText}</p>
           {this.renderOwnerControls()}
+          <HeroButtons/>
         </>
       );
     } else {
@@ -52,9 +54,7 @@ class Hero extends React.Component {
       <section className="hero">
         {this.renderHero()}
         <div className="buttons">
-          <a>Strategy</a>
-          <a>Content</a>
-          <a>Training</a>
+
         </div>
       </section>
     );

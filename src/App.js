@@ -12,6 +12,7 @@ import UpdateHeroPage from "./Hero/UpdateHeroPage/UpdateHeroPage";
 import UpdateAboutPage from "./AboutPage/UpdateAboutPage/UpdateAboutPage";
 import UpdateTestPage from "./Testimonials/UpdateTestPage/UpdateTestPage";
 import UpdateServicePage from "./ServicesPage/UpdateServicePage/UpdateServicePage";
+import UpdateHeroButtonPage from "./Hero/UpdateHeroButtonPage/UpdateHeroButtonPage";
 import NotFoundPage from "./NotFoundPage/NotFoundPage";
 import AddTestPage from "./Testimonials/AddTestPage/AddTestPage";
 import AddProjectPage from "./PortfolioPage/AddProjectPage/AddProjectPage";
@@ -38,6 +39,7 @@ class App extends React.Component {
           <PrivateRoute path="/updatetest/:id" component={UpdateTestPage} />
           <PrivateRoute path="/updateproject/:id" component={UpdateProjectPage} />
           <PrivateRoute path="/updateservice/:id" component={UpdateServicePage} />
+          <PrivateRoute path="/updatebutton/:id" component={UpdateHeroButtonPage} />
           <PrivateRoute path="/addtest" component={AddTestPage} />
           <PrivateRoute path="/addproject" component={AddProjectPage} />
           <PrivateRoute path="/addservice" component={AddServicePage} />

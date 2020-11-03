@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../../Header/Header.js";
 import Footer from "../../Footer/Footer.js";
+import TokenService from "../../Utils/TokenService";
 import "./UpdateTestPage.css";
 
 class UpdateTestPage extends React.Component {
@@ -73,6 +74,7 @@ class UpdateTestPage extends React.Component {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
+          "authorization": `bearer ${TokenService.getAuthToken()}`
         },
         body: JSON.stringify(updatedTest),
       })
@@ -92,7 +94,12 @@ class UpdateTestPage extends React.Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    fetch(`http://localhost:8000/api/testimonials/${id}`)
+    fetch(`http://localhost:8000/api/testimonials/${id}`, {
+      method: "GET",
+      headers: {
+        "authorization": `bearer ${TokenService.getAuthToken()}`
+      }
+    })
       .then((res) => res.json())
       .then((res) =>
         this.setState({

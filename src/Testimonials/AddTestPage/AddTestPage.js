@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../../Header/Header.js";
 import Footer from "../../Footer/Footer.js";
+import TokenService from "../../Utils/TokenService";
 import "./AddTestPage.css";
 
 class AddTestPage extends React.Component {
@@ -23,6 +24,7 @@ class AddTestPage extends React.Component {
         method: "POST",
         headers: {
           "content-type": "application/json",
+          "authorization": `bearer ${TokenService.getAuthToken()}`
         },
         body: JSON.stringify(newTest),
       })

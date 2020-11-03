@@ -1,10 +1,10 @@
 import React from "react";
 import Header from "../../Header/Header.js";
 import Footer from "../../Footer/Footer.js";
+import TokenService from "../../Utils/TokenService";
 import "./AddProjectPage.css";
 
 class AddProjectPage extends React.Component {
-
   navHome = () => {
     this.props.history.push("/");
   };
@@ -16,7 +16,7 @@ class AddProjectPage extends React.Component {
       name: projName.value,
       client: projClient.value,
       description: projDescription.value,
-      image_url: image_url.value
+      image_url: image_url.value,
     };
 
     if (newProject) {
@@ -24,6 +24,7 @@ class AddProjectPage extends React.Component {
         method: "POST",
         headers: {
           "content-type": "application/json",
+          authorization: `bearer ${TokenService.getAuthToken()}`,
         },
         body: JSON.stringify(newProject),
       })
@@ -55,7 +56,6 @@ class AddProjectPage extends React.Component {
               id="projClient"
               required
             ></input>
-
             <label htmlFor="projDescription">Description</label>
             <textarea
               type="text"

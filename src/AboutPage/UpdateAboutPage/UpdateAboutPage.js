@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../../Header/Header.js";
 import Footer from "../../Footer/Footer.js";
+import TokenService from "../../Utils/TokenService";
 import "./UpdateAboutPage.css";
 
 class UpdateAboutPage extends React.Component {
@@ -33,6 +34,7 @@ class UpdateAboutPage extends React.Component {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
+          "authorization": `bearer ${TokenService.getAuthToken()}`
         },
         body: JSON.stringify(this.state),
       })

@@ -2,24 +2,17 @@ import React from "react";
 import Header from "../../Header/Header.js";
 import Footer from "../../Footer/Footer.js";
 import TokenService from "../../Utils/TokenService";
-import "./UpdateHeroPage.css";
+import "./UpdateHeroButtonPage.css";
 
-class UpdateHeroPage extends React.Component {
+class UpdateHeroButtonPage extends React.Component {
   state = {
-    content: "",
-    image_url: "",
+    name: "",
     isLoaded: false,
   };
 
-  handleContentChange = (e) => {
+  handleChange = (e) => {
     this.setState({
-      content: e.target.value,
-    });
-  };
-
-  handleImageChange = (e) => {
-    this.setState({
-      image_url: e.target.value,
+      name: e.target.value,
     });
   };
 
@@ -29,35 +22,41 @@ class UpdateHeroPage extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    if (this.state.content) {
-      fetch("http://localhost:8000/api/hero/1", {
+
+    if (this.state.name) {
+      const id = this.props.match.params.id;
+      const updatedButton = {
+        name: this.state.name
+      }
+      fetch(`http://localhost:8000/api/buttons/${id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
           'authorization': `bearer ${TokenService.getAuthToken()}`
         },
-        body: JSON.stringify(this.state),
+        body: JSON.stringify(updatedButton),
       })
         .then((res) => {
           if (!res.ok) {
             throw new Error(res.status);
           } else {
-            alert("Hero updated.");
+            alert("Button updated.");
           }
         })
         .catch((err) => alert(err));
     } else {
-      alert("Hero must contain some content.");
+      alert("Button must contain some text.");
     }
   };
 
   componentDidMount() {
-    fetch("http://localhost:8000/api/hero")
+    const id = this.props.match.params.id;
+
+    fetch(`http://localhost:8000/api/buttons/${id}`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({
-          content: res[0].content,
-          image_url: res[0].image_url,
+          name: res.name,
           isLoaded: true,
         })
       )
@@ -66,29 +65,18 @@ class UpdateHeroPage extends React.Component {
 
   render() {
     return (
-      <div className="up-hero-cont">
+      <div className="up-butt-cont">
         <Header />
-        <section className="up-hero-page">
+        <section className="up-butt-page">
           <h2>Update Hero</h2>
           <form className="update-form" onSubmit={this.handleSubmit}>
-            <label htmlFor="heroText">Hero Text:</label>
-            <textarea
-              type="text"
-              name="heroText"
-              id="heroText"
-              onChange={this.handleContentChange}
-              value={this.state.content}
-              cols={50}
-              rows={25}
-              required
-            ></textarea>
-            <label htmlFor="image_url">Image Url:</label>
+            <label htmlFor="name">Button Text</label>
             <input
-              type="text"
-              name="image_url"
-              id="image_url"
-              onChange={this.handleImageChange}
-              value={this.state.image_url}
+              name="name"
+              id="name"
+              value={this.state.name}
+              onChange={this.handleChange}
+              required
             ></input>
             <button type="submit">Update</button>
             <button type="button" onClick={this.navHome}>
@@ -102,4 +90,4 @@ class UpdateHeroPage extends React.Component {
   }
 }
 
-export default UpdateHeroPage;
+export default UpdateHeroButtonPage;
