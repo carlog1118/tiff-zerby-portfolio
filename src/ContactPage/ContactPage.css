@@ -14,7 +14,9 @@
   text-align: center;
 }
 
-.email-form {
+.contact-form {
   margin-bottom: 100px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
