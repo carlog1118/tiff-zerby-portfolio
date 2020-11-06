@@ -29,7 +29,7 @@ class UpdateServicePage extends React.Component {
       description: this.state.description,
     };
     if (updatedService) {
-      fetch(`http://localhost:8000/api/services/${id}`, {
+      fetch(`https://fast-springs-85853.herokuapp.com//services/${id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -92,7 +92,7 @@ class UpdateServicePage extends React.Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    fetch(`http://localhost:8000/api/services/${id}`, {
+    fetch(`https://fast-springs-85853.herokuapp.com//api/services/${id}`, {
       method: "GET",
       headers: {
         "authorization": `bearer ${TokenService.getAuthToken()}`

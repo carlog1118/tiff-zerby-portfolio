@@ -44,7 +44,7 @@ class PortfolioPage extends React.Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost:8000/api/projects")
+    fetch("https://fast-springs-85853.herokuapp.com/api/projects")
       .then((res) => res.json())
       .then((res) =>
         this.setState({

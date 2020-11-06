@@ -5,7 +5,7 @@ import "./ServiceCard.css";
 
 class ServiceCard extends React.Component {
   handleDelete = (id, service) => {
-    fetch(`http://localhost:8000/api/services/${id}`, {
+    fetch(`https://fast-springs-85853.herokuapp.com//api/services/${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

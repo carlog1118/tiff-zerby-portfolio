@@ -23,7 +23,7 @@ class TestimonialCard extends React.Component {
   };
 
   handleDelete = (id, client) => {
-    fetch(`http://localhost:8000/api/testimonials/${id}`, {
+    fetch(`https://fast-springs-85853.herokuapp.com/api/testimonials/${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

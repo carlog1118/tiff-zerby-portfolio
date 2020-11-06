@@ -38,7 +38,7 @@ class Hero extends React.Component {
   };
 
   componentDidMount() {
-    fetch("https://quiet-brushlands-51992.herokuapp.com/")
+    fetch("https://fast-springs-85853.herokuapp.com/api/hero")
       .then((res) => res.json())
       .then((res) =>
         this.setState({

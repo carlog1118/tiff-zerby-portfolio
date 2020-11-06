@@ -94,7 +94,7 @@ class UpdateTestPage extends React.Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    fetch(`http://localhost:8000/api/testimonials/${id}`, {
+    fetch(`https://fast-springs-85853.herokuapp.com/api/testimonials/${id}`, {
       method: "GET",
       headers: {
         "authorization": `bearer ${TokenService.getAuthToken()}`

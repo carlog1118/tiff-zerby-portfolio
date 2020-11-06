@@ -28,7 +28,7 @@ class ProjectCard extends React.Component {
     if (TokenService.hasAuthToken()) {
       return (
         <>
-          <Link to={`/updateproject/${id}`}>Update</Link>
+          <Link to={`https://fast-springs-85853.herokuapp.com/${id}`}>Update</Link>
           <button
             type="button"
             onClick={() => {
@@ -43,7 +43,7 @@ class ProjectCard extends React.Component {
   };
 
   handleDelete = (id, name) => {
-    fetch(`http://localhost:8000/api/projects/${id}`, {
+    fetch(`https://fast-springs-85853.herokuapp.com/${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

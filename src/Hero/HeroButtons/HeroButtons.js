@@ -31,7 +31,7 @@ class HeroButtons extends React.Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost:8000/api/buttons")
+    fetch("https://fast-springs-85853.herokuapp.com/api/buttons")
       .then((res) => res.json())
       .then((res) => {
         this.setState({

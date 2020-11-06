@@ -18,7 +18,7 @@ class AddServicePage extends React.Component {
     };
 
     if (newService) {
-      fetch("http://localhost:8000/api/services", {
+      fetch("https://fast-springs-85853.herokuapp.com//api/services", {
         method: "POST",
         headers: {
           "content-type": "application/json",

@@ -31,7 +31,7 @@ class ProjectPage extends React.Component {
   componentDidMount() {
     const id = this.props.match.params.projectId;
 
-    fetch(`http://localhost:8000/api/projects/${id}`)
+    fetch(`https://fast-springs-85853.herokuapp.com/api/projects/${id}`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({

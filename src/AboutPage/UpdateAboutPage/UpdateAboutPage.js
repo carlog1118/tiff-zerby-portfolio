@@ -30,7 +30,7 @@ class UpdateAboutPage extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     if (this.state.about_text || this.state.image_url) {
-      fetch("http://localhost:8000/api/about/1", {
+      fetch("https://fast-springs-85853.herokuapp.com/api/about/1", {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -52,7 +52,7 @@ class UpdateAboutPage extends React.Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost:8000/api/about")
+    fetch("https://fast-springs-85853.herokuapp.com/api/about")
       .then((res) => res.json())
       .then((res) =>
         this.setState({

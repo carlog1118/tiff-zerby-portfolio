@@ -30,7 +30,7 @@ class UpdateHeroPage extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     if (this.state.content) {
-      fetch("http://localhost:8000/api/hero/1", {
+      fetch("https://fast-springs-85853.herokuapp.com/api/hero/1", {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -52,7 +52,7 @@ class UpdateHeroPage extends React.Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost:8000/api/hero")
+    fetch("https://fast-springs-85853.herokuapp.com/api/hero")
       .then((res) => res.json())
       .then((res) =>
         this.setState({

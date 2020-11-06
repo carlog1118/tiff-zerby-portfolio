@@ -41,7 +41,7 @@ class Testimonials extends React.Component {
   };
 
   getTestimonials = () => {
-    fetch("http://localhost:8000/api/testimonials")
+    fetch("https://fast-springs-85853.herokuapp.com/api/testimonials")
       .then((res) => res.json())
       .then((res) =>
         this.setState({
