@@ -2,7 +2,7 @@
 
 const AuthApiService = {
   postLogin({ user_name, password }) {
-    return fetch(`http://localhost:8000/api/login`, {
+    return fetch(`https://fast-springs-85853.herokuapp.com/api/login`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
