@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../../Header/Header.js";
-import Footer from "../../Footer/Footer.js";
 import TokenService from "../../Utils/TokenService";
 import "./UpdateProjectPage.css";
 
@@ -24,7 +22,7 @@ class UpdateProjectPage extends React.Component {
       return (
         <section className="up-proj-page">
           <h2>Update Project</h2>
-          <form className="update-form" onSubmit={this.handleSubmit}>
+          <form className="up-proj-form" onSubmit={this.handleSubmit}>
             <label htmlFor="projName">Project Name</label>
             <input
               type="text"
@@ -91,7 +89,7 @@ class UpdateProjectPage extends React.Component {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
-          'authorization': `bearer ${TokenService.getAuthToken()}`
+          authorization: `bearer ${TokenService.getAuthToken()}`,
         },
         body: JSON.stringify(updatedProject),
       })
@@ -130,13 +128,7 @@ class UpdateProjectPage extends React.Component {
   }
 
   render() {
-    return (
-      <div className="up-proj-cont">
-        <Header />
-        {this.renderUpdateProjPage()}
-        <Footer />
-      </div>
-    );
+    return <div className="up-proj-cont">{this.renderUpdateProjPage()}</div>;
   }
 }
 

@@ -1,25 +1,18 @@
-* {
-  box-sizing: border-box;
-}
-
-footer {
+.footer-section {
   background-color: gray;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding: 5px;
 }
 
-.social-media {
+.social-media-cont {
   display: flex;
   margin-right: 5px;
 }
-
-form { 
-  margin-top: 5px;
-}
-  
-.icon {
+ 
+.footer-icon {
   border: 1px solid black;
   background-color: white;
   margin-right: 5px;

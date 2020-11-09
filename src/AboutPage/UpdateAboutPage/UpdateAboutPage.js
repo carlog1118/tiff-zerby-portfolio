@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../../Header/Header.js";
-import Footer from "../../Footer/Footer.js";
 import TokenService from "../../Utils/TokenService";
 import "./UpdateAboutPage.css";
 
@@ -34,7 +32,7 @@ class UpdateAboutPage extends React.Component {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
-          "authorization": `bearer ${TokenService.getAuthToken()}`
+          authorization: `bearer ${TokenService.getAuthToken()}`,
         },
         body: JSON.stringify(this.state),
       })
@@ -67,7 +65,6 @@ class UpdateAboutPage extends React.Component {
   render() {
     return (
       <div className="up-about-cont">
-        <Header />
         <section className="up-about-page">
           <h2>Update About</h2>
           <form className="update-form" onSubmit={this.handleSubmit}>
@@ -96,7 +93,6 @@ class UpdateAboutPage extends React.Component {
             </button>
           </form>
         </section>
-        <Footer />
       </div>
     );
   }

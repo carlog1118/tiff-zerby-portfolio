@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../../Header/Header.js";
-import Footer from "../../Footer/Footer.js";
 import TokenService from "../../Utils/TokenService";
 import "./AddServicePage.css";
 
@@ -22,7 +20,7 @@ class AddServicePage extends React.Component {
         method: "POST",
         headers: {
           "content-type": "application/json",
-          "authorization": `bearer ${TokenService.getAuthToken()}`
+          authorization: `bearer ${TokenService.getAuthToken()}`,
         },
         body: JSON.stringify(newService),
       })
@@ -40,7 +38,6 @@ class AddServicePage extends React.Component {
   render() {
     return (
       <div className="add-serv-cont">
-        <Header />
         <section className="add-serv-page">
           <h2>Add Service</h2>
           <form className="add-serv-form" onSubmit={this.handleSubmit}>
@@ -62,7 +59,6 @@ class AddServicePage extends React.Component {
             </button>
           </form>
         </section>
-        <Footer />
       </div>
     );
   }

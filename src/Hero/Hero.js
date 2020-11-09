@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import HeroButtons from './HeroButtons/HeroButtons';
+import HeroButtons from "./HeroButtons/HeroButtons";
 import TokenService from "../Utils/TokenService";
 import "./Hero.css";
 
@@ -20,10 +20,10 @@ class Hero extends React.Component {
 
       return (
         <>
-          <img src={imageUrl} alt="hero image"></img>
-          <p>{heroText}</p>
+          <img src={imageUrl} alt="hero"></img>
+          <p className="hero-text">{heroText}</p>
           {this.renderOwnerControls()}
-          <HeroButtons/>
+          <HeroButtons />
         </>
       );
     } else {
@@ -51,11 +51,9 @@ class Hero extends React.Component {
 
   render() {
     return (
-      <section className="hero">
+      <section className="hero-sect">
         {this.renderHero()}
-        <div className="buttons">
-
-        </div>
+        <div className="hero-buttons"></div>
       </section>
     );
   }

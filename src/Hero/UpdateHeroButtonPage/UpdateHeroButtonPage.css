@@ -1,11 +1,11 @@
-.up-butt-cont{
+.up-hero-butt-cont{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.up-butt-page{
+.up-hero-butt-page{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +14,7 @@
   text-align: center;
 }
 
-.update-form{
+.up-hero-butt-form{
   display: flex;
   flex-direction: column;
 }

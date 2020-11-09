@@ -1,4 +1,13 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
 button {
-  padding: 5px;
-  margin: 5px;
+  margin: 10px;
+}
+
+a {
+  margin: 10px;
 }

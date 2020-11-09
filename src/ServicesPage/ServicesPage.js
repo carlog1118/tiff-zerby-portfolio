@@ -1,8 +1,6 @@
 import React from "react";
-import Header from "../Header/Header";
 import ServiceCard from "./ServiceCard/ServiceCard";
 import { Link } from "react-router-dom";
-import Footer from "../Footer/Footer";
 import TokenService from "../Utils/TokenService";
 import "./ServicesPage.css";
 
@@ -42,7 +40,7 @@ class ServicesPage extends React.Component {
       );
     }
   };
-  
+
   componentDidMount() {
     fetch("https://fast-springs-85853.herokuapp.com/api/services")
       .then((res) => res.json())
@@ -56,16 +54,12 @@ class ServicesPage extends React.Component {
   }
 
   render() {
-    
-
     return (
       <div className="services-page">
-        <Header />
         <section className="services">
           <h2>Services</h2>
           {this.renderServices()}
         </section>
-        <Footer />
       </div>
     );
   }

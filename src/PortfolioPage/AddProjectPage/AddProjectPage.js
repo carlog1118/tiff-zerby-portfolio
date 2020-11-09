@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../../Header/Header.js";
-import Footer from "../../Footer/Footer.js";
 import TokenService from "../../Utils/TokenService";
 import "./AddProjectPage.css";
 
@@ -42,7 +40,6 @@ class AddProjectPage extends React.Component {
   render() {
     return (
       <div className="add-proj-cont">
-        <Header />
         <section className="add-proj-page">
           <h2>Add Project</h2>
           <form className="add-proj-form" onSubmit={this.handleSubmit}>
@@ -73,7 +70,6 @@ class AddProjectPage extends React.Component {
             </button>
           </form>
         </section>
-        <Footer />
       </div>
     );
   }

@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../../Header/Header.js";
-import Footer from "../../Footer/Footer.js";
 import TokenService from "../../Utils/TokenService";
 import "./UpdateTestPage.css";
 
@@ -18,7 +16,7 @@ class UpdateTestPage extends React.Component {
       return (
         <section className="up-test-page">
           <h2>Update Testimonial</h2>
-          <form className="update-form" onSubmit={this.handleSubmit}>
+          <form className="up-test-form" onSubmit={this.handleSubmit}>
             <label htmlFor="testClient">Client</label>
             <input
               type="text"
@@ -74,7 +72,7 @@ class UpdateTestPage extends React.Component {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
-          "authorization": `bearer ${TokenService.getAuthToken()}`
+          authorization: `bearer ${TokenService.getAuthToken()}`,
         },
         body: JSON.stringify(updatedTest),
       })
@@ -97,8 +95,8 @@ class UpdateTestPage extends React.Component {
     fetch(`https://fast-springs-85853.herokuapp.com/api/testimonials/${id}`, {
       method: "GET",
       headers: {
-        "authorization": `bearer ${TokenService.getAuthToken()}`
-      }
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
     })
       .then((res) => res.json())
       .then((res) =>
@@ -111,13 +109,7 @@ class UpdateTestPage extends React.Component {
   }
 
   render() {
-    return (
-      <div className="up-test-cont">
-        <Header />
-        {this.renderPage()}
-        <Footer />
-      </div>
-    );
+    return <div className="up-test-cont">{this.renderPage()}</div>;
   }
 }
 

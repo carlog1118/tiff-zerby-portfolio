@@ -1,11 +1,8 @@
 import React from "react";
-import Header from "../../Header/Header.js";
-import Footer from "../../Footer/Footer.js";
 import TokenService from "../../Utils/TokenService";
 import "./AddTestPage.css";
 
 class AddTestPage extends React.Component {
-
   navHome = () => {
     this.props.history.push("/");
   };
@@ -24,7 +21,7 @@ class AddTestPage extends React.Component {
         method: "POST",
         headers: {
           "content-type": "application/json",
-          "authorization": `bearer ${TokenService.getAuthToken()}`
+          authorization: `bearer ${TokenService.getAuthToken()}`,
         },
         body: JSON.stringify(newTest),
       })
@@ -39,14 +36,9 @@ class AddTestPage extends React.Component {
     }
   };
 
-  componentDidMount(){
-    console.log(this.props)
-  }
-
   render() {
     return (
       <div className="up-test-cont">
-        <Header />
         <section className="up-test-page">
           <h2>Add Test</h2>
           <form className="update-form" onSubmit={this.handleSubmit}>
@@ -69,7 +61,6 @@ class AddTestPage extends React.Component {
             </button>
           </form>
         </section>
-        <Footer />
       </div>
     );
   }

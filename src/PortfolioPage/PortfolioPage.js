@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Header from "../Header/Header";
 import TokenService from "../Utils/TokenService";
 import ProjectCard from "./ProjectCard/ProjectCard";
-import Footer from "../Footer/Footer";
 import "./PortfolioPage.css";
 
 class PortfolioPage extends React.Component {
@@ -57,14 +55,11 @@ class PortfolioPage extends React.Component {
 
   render() {
     return (
-      <div className="projects-page">
-        <Header />
-        <section className="projects">
+      <div className="port-page">
+        <section className="port-section">
           <h2>Projects</h2>
           {this.renderPortfolio()}
         </section>
-
-        <Footer />
       </div>
     );
   }

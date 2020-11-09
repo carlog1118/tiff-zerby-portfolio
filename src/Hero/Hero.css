@@ -1,8 +1,4 @@
-* {
-  box-sizing: border-box;
-}
-
-.hero {
+.hero-sect {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,22 +8,9 @@
   padding-bottom: 20px;
 }
 
-p {
+.hero-text {
   width: 90%;
   max-width: 550px;
   font-size: 20px;
   line-height: 24px;
-}
-
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  width: 250px;
-}
-
-a {
-  border: 1px solid black;
-  background-color: darkgray;
-  color: white;
-  padding: 5px;
 }

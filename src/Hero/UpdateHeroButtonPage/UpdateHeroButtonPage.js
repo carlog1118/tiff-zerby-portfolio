@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../../Header/Header.js";
-import Footer from "../../Footer/Footer.js";
 import TokenService from "../../Utils/TokenService";
 import "./UpdateHeroButtonPage.css";
 
@@ -26,13 +24,13 @@ class UpdateHeroButtonPage extends React.Component {
     if (this.state.name) {
       const id = this.props.match.params.id;
       const updatedButton = {
-        name: this.state.name
-      }
+        name: this.state.name,
+      };
       fetch(`https://fast-springs-85853.herokuapp.com/api/buttons/${id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
-          'authorization': `bearer ${TokenService.getAuthToken()}`
+          authorization: `bearer ${TokenService.getAuthToken()}`,
         },
         body: JSON.stringify(updatedButton),
       })
@@ -65,11 +63,10 @@ class UpdateHeroButtonPage extends React.Component {
 
   render() {
     return (
-      <div className="up-butt-cont">
-        <Header />
-        <section className="up-butt-page">
+      <div className="up-hero-butt-cont">
+        <section className="up-hero-butt-page">
           <h2>Update Hero</h2>
-          <form className="update-form" onSubmit={this.handleSubmit}>
+          <form className="up-hero-butt-form" onSubmit={this.handleSubmit}>
             <label htmlFor="name">Button Text</label>
             <input
               name="name"
@@ -84,7 +81,6 @@ class UpdateHeroButtonPage extends React.Component {
             </button>
           </form>
         </section>
-        <Footer />
       </div>
     );
   }

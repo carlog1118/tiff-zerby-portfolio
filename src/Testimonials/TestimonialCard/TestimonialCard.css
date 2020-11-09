@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 .test-card-cont {
   width: 300px;
   display: flex;
@@ -11,7 +7,7 @@
   border: 1px solid green;
 }
 
-.company {
+.client {
   font-weight: bold;
   font-size: 20px;
   margin: 0;

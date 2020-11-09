@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import "./ProjectPage.css";
 
 class ProjectPage extends React.Component {
@@ -18,7 +16,7 @@ class ProjectPage extends React.Component {
       return (
         <>
           <h2>{name}</h2>
-          <img src={imageUrl}></img>
+          <img src={imageUrl} alt="project"></img>
           <h3>{client}</h3>
           <p>{description}</p>
         </>
@@ -45,9 +43,7 @@ class ProjectPage extends React.Component {
   render() {
     return (
       <div className="project-page-cont">
-        <Header />
         <section className="project-page">{this.renderProjectPage()}</section>
-        <Footer />
       </div>
     );
   }

@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 .project-card {
   display: flex;
   text-align: center;

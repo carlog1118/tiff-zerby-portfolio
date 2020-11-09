@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../../Header/Header.js";
-import Footer from "../../Footer/Footer.js";
 import TokenService from "../../Utils/TokenService";
 import "./UpdateServicePage.css";
 
@@ -33,7 +31,7 @@ class UpdateServicePage extends React.Component {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
-          "authorization": `bearer ${TokenService.getAuthToken()}`
+          authorization: `bearer ${TokenService.getAuthToken()}`,
         },
         body: JSON.stringify(updatedService),
       })
@@ -58,7 +56,7 @@ class UpdateServicePage extends React.Component {
       return (
         <section className="up-serv-page">
           <h2>Update Service</h2>
-          <form className="update-form" onSubmit={this.handleSubmit}>
+          <form className="up-serv-form" onSubmit={this.handleSubmit}>
             <label htmlFor="service">Service</label>
             <input
               type="text"
@@ -95,8 +93,8 @@ class UpdateServicePage extends React.Component {
     fetch(`https://fast-springs-85853.herokuapp.com//api/services/${id}`, {
       method: "GET",
       headers: {
-        "authorization": `bearer ${TokenService.getAuthToken()}`
-      }
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
     })
       .then((res) => res.json())
       .then((res) =>
@@ -110,13 +108,7 @@ class UpdateServicePage extends React.Component {
   }
 
   render() {
-    return (
-      <div className="up-serv-cont">
-        <Header />
-        {this.renderPage()}
-        <Footer />
-      </div>
-    );
+    return <div className="up-serv-cont">{this.renderPage()}</div>;
   }
 }
 

@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import TokenService from "../Utils/TokenService";
 import { Link } from "react-router-dom";
 import "./AboutPage.css";
@@ -55,13 +53,11 @@ class AboutPage extends React.Component {
   render() {
     return (
       <div className="about-page-container">
-        <Header />
         <section className="about-section">
           <h2>About me</h2>
           <div className="about-cont">{this.renderAbout()}</div>
           <Link to={"/contact"}>Let's Talk</Link>
         </section>
-        <Footer />
       </div>
     );
   }

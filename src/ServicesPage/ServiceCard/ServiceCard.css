@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 .service-card {
   display: flex;
   text-align: center;

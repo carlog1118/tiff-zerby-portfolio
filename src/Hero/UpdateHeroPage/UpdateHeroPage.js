@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../../Header/Header.js";
-import Footer from "../../Footer/Footer.js";
 import TokenService from "../../Utils/TokenService";
 import "./UpdateHeroPage.css";
 
@@ -34,7 +32,7 @@ class UpdateHeroPage extends React.Component {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
-          'authorization': `bearer ${TokenService.getAuthToken()}`
+          authorization: `bearer ${TokenService.getAuthToken()}`,
         },
         body: JSON.stringify(this.state),
       })
@@ -67,10 +65,9 @@ class UpdateHeroPage extends React.Component {
   render() {
     return (
       <div className="up-hero-cont">
-        <Header />
         <section className="up-hero-page">
           <h2>Update Hero</h2>
-          <form className="update-form" onSubmit={this.handleSubmit}>
+          <form className="up-hero-form" onSubmit={this.handleSubmit}>
             <label htmlFor="heroText">Hero Text:</label>
             <textarea
               type="text"
@@ -96,7 +93,6 @@ class UpdateHeroPage extends React.Component {
             </button>
           </form>
         </section>
-        <Footer />
       </div>
     );
   }

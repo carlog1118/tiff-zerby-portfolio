@@ -33,9 +33,9 @@ class Testimonials extends React.Component {
   renderOwnerControls = () => {
     if (TokenService.hasAuthToken()) {
       return (
-        <>
+        <div className="add-test-butt-cont">
           <Link to="/addtest">Add Testimonial</Link>
-        </>
+        </div>
       );
     }
   };
@@ -57,9 +57,7 @@ class Testimonials extends React.Component {
   }
 
   render() {
-    return (
-      <section className="testimonials">{this.renderTestimonial()}</section>
-    );
+    return <section className="test-sect">{this.renderTestimonial()}</section>;
   }
 }
 

@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import AuthApiService from "../Utils/AuthApiService";
 import TokenService from "../Utils/TokenService";
 import "./LoginForm.css";
@@ -24,7 +22,7 @@ class LoginForm extends React.Component {
         user_name.value = "";
         password.value = "";
         TokenService.saveAuthToken(res.authToken);
-        this.props.history.push("/");
+        alert("log in succesful")
       })
       .catch((res) => {
         alert(res.error);
@@ -34,7 +32,6 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-cont">
-        <Header />
         <section className="login-page">
           <h2>Log In</h2>
           <h3>
@@ -48,13 +45,10 @@ class LoginForm extends React.Component {
             <input type="text" name="user_name" id="user-name" required></input>
             <label htmlFor="password">Password</label>
             <input type="text" name="password" id="password" required></input>
-            <button type="submit">Log In</button>
-            <button type="button" onClick={this.navHome}>
-              Cancel
-            </button>
+            <button type="submit" className="log-in-butt">Log In</button>
+            <button type="button" className="log-in-butt" onClick={this.navHome}>Cancel</button>
           </form>
         </section>
-        <Footer />
       </div>
     );
   }
