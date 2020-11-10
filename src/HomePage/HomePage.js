@@ -1,6 +1,6 @@
 import React from "react";
 import Hero from "../Hero/Hero";
-import Testimonials from "../Testimonials/Testimonials";
+import TestCar from "../Testimonials/Carousel/TestCar"
 import "./HomePage.css";
 
 class HomePage extends React.Component {
@@ -9,7 +9,7 @@ class HomePage extends React.Component {
       <div className="home-page-cont">
         <section className="home-page">
           <Hero />
-          <Testimonials className="testimonials" />
+          <TestCar/>
         </section>
       </div>
     );

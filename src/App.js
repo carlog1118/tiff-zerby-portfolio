@@ -28,7 +28,7 @@ import "./App.css";
 class App extends React.Component {
   renderLogOut = () => {
     if (TokenService.hasAuthToken()) {
-      return <LogOutButton />
+      return <LogOutButton />;
     }
   };
 
@@ -66,7 +66,6 @@ class App extends React.Component {
           <Route path="/login" component={LoginForm}></Route>
           <Route component={NotFoundPage} />
         </Switch>
-
         <Footer />
       </div>
     );
