@@ -1,0 +1,11 @@
+.owner-hero-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 960px) {
+  .owner-hero-buttons {
+    display: flex;
+    flex-direction: row;
+  }
+}

@@ -33,7 +33,7 @@ class Hero extends React.Component {
 
   renderOwnerControls = () => {
     if (TokenService.hasAuthToken()) {
-      return <Link to={"/updatehero"}>Update</Link>;
+      return <Link to={"/updatehero"}>Update Hero</Link>;
     }
   };
 

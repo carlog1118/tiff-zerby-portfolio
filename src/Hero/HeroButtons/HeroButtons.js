@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./HeroButtons.css";
 import TokenService from "../../Utils/TokenService";
 
 class HeroButtons extends React.Component {
@@ -18,14 +19,14 @@ class HeroButtons extends React.Component {
     if (this.state.isLoaded) {
       const [buttonOne, buttonTwo, buttonThree] = this.state.buttons;
       return (
-        <>
+        <div className={TokenService.hasAuthToken ? "owner-hero-buttons" : "hero-buttons"}>
           <Link to={"/services"}>{buttonOne.name}</Link>
           {this.renderOwnerControls(buttonOne.id)}
           <Link to={"/services"}>{buttonTwo.name}</Link>
           {this.renderOwnerControls(buttonTwo.id)}
           <Link to={"/services"}>{buttonThree.name}</Link>
           {this.renderOwnerControls(buttonThree.id)}
-        </>
+        </div>
       );
     }
   };
@@ -43,7 +44,7 @@ class HeroButtons extends React.Component {
   }
 
   render() {
-    return <div className="hero-buttons">{this.renderButtons()}</div>;
+    return <div>{this.renderButtons()}</div>;
   }
 }
 
